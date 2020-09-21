@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostsController!{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+        <p>{{ form_widget(form.title) }}</p>
+        <p>
+            {{ form_widget(form.body, {'attr': {
+                'rows' : '10',
+                'cols' : '10'  }}) }}
+        </p>
+    <p><button class="btn btn-default" type="submit">Save</button></p>
+    {{ form_end(form) }}
+
+{% endblock %}

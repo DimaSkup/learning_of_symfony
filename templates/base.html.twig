@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="{{ asset('build/css/app.css') }}">
+    <script src="{{ asset('build/js/app.js') }}"></script>
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+    <ul id="navbar">
+        <li><a href="{{ path('blog_posts') }}">Main Page</a></li>
+        <li><a href="#">News</a></li>
+        <li><a href="#">Contacts</a></li>
+        <li><a href="#">About Us</a></li>
+        <li class="language_choice"><a href="#">Language</a>
+            <ul>
+                <li><a href="#">Українська</a></li>
+                <li><a href="#">Русский</a></li>
+                <li><a href="#">English</a></li>
+            </ul>
+        </li>
+        <li class="search_form">
+            <form class="form-inline" action="{{ path('blog_search') }}" method="GET">
+                <input class="form-control" type="search" aria-label="Search" name="q">
+                <button class="btn btn-default" type="submit">Search</button>
+            </form>
+        </li>
+    </ul>
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+</body>
+</html>

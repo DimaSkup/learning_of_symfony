@@ -1,0 +1,13 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation of the registration</title>
+</head>
+<body>
+<div class="container">
+    <p>Welcome, {{ user.username }}</p>
+    <p>To finish the registration, confirm <a href="{{ app.request.schemeAndHttpHost }}{{ path('email_confirmation', {'code': user.confirmationCode }) }}">e-mail</a></p>
+</div>
+</body>
+</html>

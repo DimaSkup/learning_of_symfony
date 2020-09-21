@@ -1,0 +1,9 @@
+[12-Sep-2020 10:42:13 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[12-Sep-2020 12:08:46 Europe/Helsinki] 2020-09-12T12:08:46+03:00 [critical] Uncaught Exception: Cannot determine controller argument for "App\Controller\PostsController::post()": the $post argument is type-hinted with the non-existent class or interface: "App\Controller\Post". Did you forget to add a use statement?
+[14-Sep-2020 11:30:40 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[15-Sep-2020 09:41:39 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[17-Sep-2020 07:34:23 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[17-Sep-2020 10:08:18 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[18-Sep-2020 07:36:55 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[19-Sep-2020 07:23:10 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[21-Sep-2020 09:06:20 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
