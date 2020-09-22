@@ -35,13 +35,9 @@ class OAuthController extends AbstractController
     public function connectGoogleCheck()
     {
         if (!$this->getUser())
-        {
             return new JsonResponse(['status' => false, 'message' => "User not found!"]);
-        }
         else
-        {
             return $this->redirectToRoute('blog_posts');
-        }
     }
 
     /**
