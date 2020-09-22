@@ -90,14 +90,6 @@ class OAuthGoogleAuthenticator extends SocialAuthenticator
      */
     public function getUser($credentials, UserProviderInterface $userProvider)
     {
-
-        if ($credentials === null)
-        {
-            // The token header was empty, authentication fails with HTTP Status
-            // Code 401 "Unauthorized"
-            return null;
-        }
-
         /** @var GoogleUser $googleUser */
         $googleUser = $this->getGoogleClient()
             ->fetchUserFromToken($credentials);
@@ -125,7 +117,7 @@ class OAuthGoogleAuthenticator extends SocialAuthenticator
         }
         elseif (!$user)
         {
-            $newOAuthGoogleUser = User::fromGoogleRequest(
+            $user = User::fromGoogleRequest(
                 $clientId,
                 $email,
                 $googleUser->getName()
@@ -135,7 +127,7 @@ class OAuthGoogleAuthenticator extends SocialAuthenticator
             $this->em->flush();
         }
 
-        return $newOAuthGoogleUser;
+        return $user;
     }
 
     /**
@@ -149,7 +141,7 @@ class OAuthGoogleAuthenticator extends SocialAuthenticator
         AuthenticationException $exception
     ): ?Response
     {
-        return null;
+        echo "MDA<br/>";
     }
 
     /**

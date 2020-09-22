@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class OAuthController extends AbstractController
@@ -42,6 +43,38 @@ class OAuthController extends AbstractController
             return $this->redirectToRoute('blog_posts');
         }
     }
+
+    /**
+     * @Route("connect/github", name="connect_github_start")
+     *
+     * @param ClientRegistry $clientRegistry
+     *
+     * @return RedirectResponse
+     */
+    public function redirectToGithubConnect(ClientRegistry $clientRegistry)
+    {
+        return $clientRegistry
+            ->getClient('github')
+            ->redirect([
+                'user', 'public_repo'
+            ]);
+    }
+
+    /**
+     * @Route("/github/auth", name="github_auth")
+     *
+     * @return RedirectResponse|Response
+     */
+    public function authenticateGithubUser()
+    {
+        if (!$this->getUser())
+        {
+            return new Response('User not found', 404);
+        }
+
+        return $this->redirectToRoute('blog_posts');
+    }
+
 }
 
 ?>
