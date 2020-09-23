@@ -8,3 +8,88 @@
 [19-Sep-2020 07:23:10 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [21-Sep-2020 09:06:20 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [22-Sep-2020 12:46:57 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[23-Sep-2020 11:28:08 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[23-Sep-2020 12:51:09 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:10 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:16 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:19 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:19 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:30 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:31 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503

@@ -3,7 +3,7 @@
 {% block title %}Hello PostsController!{% endblock %}
 
 {% block body %}
-
+{{ 'posts.text'|trans }}
 <div>
     {% for post in posts %}
         <a href="{{ path('blog_show', {'slug': post.slug}) }}">{{ post.title }}</a><br/><br/>

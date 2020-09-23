@@ -19,11 +19,18 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: lazy
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 31536000
+                always_remember_me: true
+            anonymous: true
             provider: app_user_provider
             guard:
+                entry_point: App\Security\LoginFormAuthenticationAuthenticator
                 authenticators:
                     - App\Security\LoginFormAuthenticationAuthenticator
+                    - App\Security\OAuthGoogleAuthenticator
+                    - App\Security\OAuthGithubAuthenticator
             logout:
                 path: logout
                 target: login

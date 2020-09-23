@@ -40,7 +40,8 @@ class PostsController extends AbstractController
         $posts = $this->postRepository->searchByQuery($query);
 
         return $this->render('posts/query_post.html.twig', [
-            'posts' => $posts
+            'posts' => $posts,
+            'text' => "Word",
         ]);
     }
 

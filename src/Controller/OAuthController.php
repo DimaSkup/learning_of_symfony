@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use KnpU\OAuth2ClientBundle\Client\ClientRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Cookie;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -47,8 +48,22 @@ class OAuthController extends AbstractController
      *
      * @return RedirectResponse
      */
-    public function redirectToGithubConnect(ClientRegistry $clientRegistry)
+    public function redirectToGithubConnect(
+        ClientRegistry $clientRegistry,
+        Request $request
+    )
     {
+        $localeWhenSignInWithGithub = $request->query->get('curLocale');
+
+        // save the user's current locale in a cookie
+        $response = new Response('Content', Response::HTTP_OK, ['content-type' => 'text/html']);
+        $response->headers->setCookie(new Cookie(
+            'localeWhenSighInWithGithub',
+            $localeWhenSignInWithGithub,
+            strtotime('now + 30 days')
+        ));
+        $response->sendHeaders();
+
         return $clientRegistry
             ->getClient('github')
             ->redirect([
@@ -71,6 +86,8 @@ class OAuthController extends AbstractController
         return $this->redirectToRoute('blog_posts');
     }
 
+
+    static public $curLocale;
 }
 
 ?>

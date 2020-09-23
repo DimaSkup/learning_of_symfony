@@ -5,7 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cd7ccde0-8f91-47af-87ab-af2ca72d60d1" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/blog.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/blog.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php_errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/php_errors.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/php_errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/public/php_errors.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/OAuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/OAuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Security/OAuthGoogleAuthenticator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Security/OAuthGoogleAuthenticator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/security/login.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/security/login.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -137,6 +151,7 @@
       <path value="$PROJECT_DIR$/vendor/psr/http-client" />
       <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/vendor/knpuniversity/oauth2-client-bundle" />
+      <path value="$PROJECT_DIR$/vendor/league/oauth2-github" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hOyknA8tX1tlGUGNF7xMOkA87C" />
@@ -148,11 +163,12 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/translations" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/translations" />
       <recent name="$PROJECT_DIR$/src/Repository" />
       <recent name="$PROJECT_DIR$/src/Entity" />
       <recent name="$PROJECT_DIR$/templates/security" />
@@ -178,7 +194,8 @@
       <workItem from="1600403939662" duration="6293000" />
       <workItem from="1600489561938" duration="10573000" />
       <workItem from="1600666998114" duration="6604000" />
-      <workItem from="1600768044854" duration="2886000" />
+      <workItem from="1600768044854" duration="3001000" />
+      <workItem from="1600849700002" duration="7580000" />
     </task>
     <servers />
   </component>
@@ -194,10 +211,10 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="616" y="220" width="424" height="484" key="FileChooserDialogImpl/67.27.1533.873@67.27.1533.873" timestamp="1600501390929" />
-    <state x="245" y="182" width="465" height="561" key="NewPhpClassDialog" timestamp="1600499622799">
+    <state x="245" y="182" width="465" height="561" key="NewPhpClassDialog" timestamp="1600849834874">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="245" y="182" width="465" height="561" key="NewPhpClassDialog/67.27.1533.873@67.27.1533.873" timestamp="1600499622799" />
+    <state x="245" y="182" width="465" height="561" key="NewPhpClassDialog/67.27.1533.873@67.27.1533.873" timestamp="1600849834874" />
     <state x="113" y="212" width="672" height="678" key="search.everywhere.popup" timestamp="1600493794267">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
