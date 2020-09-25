@@ -18,7 +18,6 @@ class OAuthController extends AbstractController
     /**
      * @param ClientRegistry $clientRegistry
      * @return RedirectResponse
-     * @Route("/connect/google", name="connect_google_start")
      */
     public function redirectToGoogleConnect(ClientRegistry $clientRegistry)
     {
@@ -30,7 +29,6 @@ class OAuthController extends AbstractController
     }
 
     /**
-     * @Route("/google/auth", name="google_auth")
      * @return JsonResponse|RedirectResponse
      */
     public function connectGoogleCheck()
@@ -42,8 +40,6 @@ class OAuthController extends AbstractController
     }
 
     /**
-     * @Route("connect/github", name="connect_github_start")
-     *
      * @param ClientRegistry $clientRegistry
      *
      * @return RedirectResponse
@@ -72,15 +68,13 @@ class OAuthController extends AbstractController
     }
 
     /**
-     * @Route("/github/auth", name="github_auth")
-     *
      * @return RedirectResponse|Response
      */
     public function authenticateGithubUser()
     {
         if (!$this->getUser())
         {
-            return new Response('User not found', 404);
+            return new Response('Error:(authenticateGithubUser()):User not found', 404);
         }
 
         return $this->redirectToRoute('blog_posts');

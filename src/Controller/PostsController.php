@@ -8,19 +8,24 @@ use App\Form\PostType;
 use App\Repository\PostRepository;
 use Cocur\Slugify\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class PostsController extends AbstractController
 {
+    /**
+     * PostsController constructor.
+     * @param PostRepository $postRepository
+     */
     public function __construct(PostRepository $postRepository)
     {
         $this->postRepository = $postRepository;
     }
 
     /**
-     * @Route("/posts", name="blog_posts")
+     * @return Response
      */
     public function posts()
     {
@@ -32,7 +37,8 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route("/posts/search", name="blog_search")
+     * @param Request $request
+     * @return Response
      */
     public function search(Request $request)
     {
@@ -46,8 +52,6 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route("/posts/new", name="new_blog_post")
-     *
      * @param Request $request
      * @param Slugify $slugify
      *
@@ -79,7 +83,10 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route("/posts/{slug}/edit", name="blog_post_edit")
+     * @param Post $post
+     * @param Request $request
+     * @param Slugify $slugify
+     * @return RedirectResponse|Response
      */
     public function edit(Post $post, Request $request, Slugify $slugify)
     {
@@ -104,7 +111,8 @@ class PostsController extends AbstractController
     }
 
     /**
-     * @Route("/posts/{slug}/delete", name="blog_post_delete")
+     * @param Post $post
+     * @return RedirectResponse
      */
     public function delete(Post $post)
     {
@@ -112,11 +120,12 @@ class PostsController extends AbstractController
         $em->remove($post);
         $em->flush();
 
-        return $this->redirectTORoute('blog_posts');
+        return $this->redirectToRoute('blog_posts');
     }
 
     /**
-     * @Route("/posts/{slug}", name="blog_show")
+     * @param Post $post
+     * @return Response
      */
     public function post(Post $post)
     {

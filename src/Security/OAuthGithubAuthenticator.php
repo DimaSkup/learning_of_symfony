@@ -72,7 +72,7 @@ final class OAuthGithubAuthenticator extends SocialAuthenticator
      */
     public function supports(Request $request)
     {
-        return $request->attributes->get('_router') === 'github_auth';
+        return $request->attributes->get('_route') === 'github_auth';
     }
 
     /**
@@ -93,7 +93,7 @@ final class OAuthGithubAuthenticator extends SocialAuthenticator
      *
      * @throws Exception
      */
-    public function getUser($credentials, UserProviderInterface $userProvider): ?UserProvider
+    public function getUser($credentials, UserProviderInterface $userProvider): ?UserInterface
     {
         /** @var GithubResourceOwner $githubUser */
         $githubUser = $this->getGithubClient()
@@ -119,6 +119,7 @@ final class OAuthGithubAuthenticator extends SocialAuthenticator
             $githubUserData['email'] ?? $githubUserData['login'],
             $nickName
         );
+
 
         $this->em->persist($user);
         $this->em->flush();
@@ -153,7 +154,7 @@ final class OAuthGithubAuthenticator extends SocialAuthenticator
         $providerKey
     ): ?Response
     {
-        return new RedirectResponse($this->router->generate('proglib_app'));
+        return new RedirectResponse($this->router->generate('blog_posts'));
     }
 
     /**

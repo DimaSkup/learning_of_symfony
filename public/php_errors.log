@@ -93,3 +93,10 @@ Stack trace:
 #5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
 #6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
 #7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[25-Sep-2020 09:10:18 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[25-Sep-2020 09:48:10 Europe/Helsinki] 2020-09-25T09:48:10+03:00 [critical] Uncaught Error: syntax error, unexpected 'elseif' (T_ELSEIF)
+[25-Sep-2020 10:01:33 Europe/Helsinki] 2020-09-25T10:01:33+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 10:01:35 Europe/Helsinki] 2020-09-25T10:01:35+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 10:01:36 Europe/Helsinki] 2020-09-25T10:01:36+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 10:01:37 Europe/Helsinki] 2020-09-25T10:01:37+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 10:01:38 Europe/Helsinki] 2020-09-25T10:01:38+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)

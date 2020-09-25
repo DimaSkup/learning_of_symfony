@@ -101,7 +101,7 @@ class User implements UserInterface
      * @return User
      */
     public static function fromGoogleRequest(
-        string $clientId,
+        int $clientId,
         string $email,
         string $username
     )
@@ -360,7 +360,7 @@ class User implements UserInterface
 
     /**
      * @var string The hashed password
-     * @ORM\Column(type="string")
+     * @ORM\Column(type="string", nullable=true)
      */
     private $password;
 

@@ -19,6 +19,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -31,16 +32,19 @@ class OAuthGoogleAuthenticator extends SocialAuthenticator
      * @param ClientRegistry $clientRegistry
      * @param EntityManagerInterface $em
      * @param UserRepository $userRepository
+     * @param RouterInterface $router
      */
     public function __construct(
         ClientRegistry $clientRegistry,
         EntityManagerInterface $em,
-        UserRepository $userRepository
+        UserRepository $userRepository,
+        RouterInterface $router
     )
     {
         $this->clientRegistry = $clientRegistry;
         $this->em = $em;
         $this->userRepository = $userRepository;
+        $this->router = $router;
     }
 
     // Викликається, коли користувачу необхідна авторизація,
@@ -109,16 +113,17 @@ class OAuthGoogleAuthenticator extends SocialAuthenticator
         /** @var User $user */
         $user = $this->userRepository
             ->findOneBy(['email' => $email]);
-
+        //dd($googleUser->getName());
         if ($user)
         {
-            $user->setClientId($clientId);
+            $user->setClientId((int)$clientId);
             return $user;
         }
+
         elseif (!$user)
         {
             $user = User::fromGoogleRequest(
-                $clientId,
+                (int)$clientId,
                 $email,
                 $googleUser->getName()
             );
@@ -190,6 +195,11 @@ class OAuthGoogleAuthenticator extends SocialAuthenticator
      * @var userRepository
      */
     private $userRepository;
+
+    /**
+     * @var RouterInterface
+     */
+    private $router;
 }
 
 ?>
