@@ -11,6 +11,12 @@
                 'rows' : '10',
                 'cols' : '10'  }}) }}
         </p>
+        <p>
+            Brochure (PDF file): {{ form_widget(form.brochure) }}
+        </p>
+        <p>
+            Image (JPG|PNG|GIF file): {{ form_widget(form.image) }}
+        </p>
     <p><button class="btn btn-default" type="submit">Save</button></p>
     {{ form_end(form) }}
 

@@ -3,7 +3,11 @@
 {% block title %}Hello PostsController!{% endblock %}
 
 {% block body %}
+
 {{ 'posts.text'|trans }}
+
+<p><a href="{{ path('new_blog_post') }}">Create a new post</a></p>
+
 <div>
     {% for post in posts %}
         <a href="{{ path('blog_show', {'slug': post.slug}) }}">{{ post.title }}</a><br/><br/>

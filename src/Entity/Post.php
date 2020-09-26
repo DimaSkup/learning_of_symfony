@@ -29,10 +29,12 @@ class Post
 
     /**
      * @param mixed $titlе
+     * @return Post
      */
-    public function setTitle($title): void
+    public function setTitle($title): self
     {
         $this->title = $title;
+        return $this;
     }
 
     /**
@@ -45,10 +47,12 @@ class Post
 
     /**
      * @param mixed $body
+     * @return Post
      */
-    public function setBody($body): void
+    public function setBody($body): self
     {
         $this->body = $body;
+        return $this;
     }
 
     /**
@@ -84,6 +88,44 @@ class Post
     }
 
     /**
+     * @return string|null
+     */
+    public function getBrochureFilename(): ?string
+    {
+        return $this->brochureFilename;
+    }
+
+    /**
+     * @param string $brochureFilename
+     * @return Post
+     */
+    public function setBrochureFilename($brochureFilename): self
+    {
+        $this->brochureFilename = $brochureFilename;
+
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getImageFilename(): ?string
+    {
+        return $this->imageFilename;
+    }
+
+    /**
+     * @param string $imageFilename
+     * @return Post
+     */
+    public function setImageFilename($imageFilename): self
+    {
+        $this->imageFilename = $imageFilename;
+
+        return $this;
+    }
+
+    /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -110,4 +152,14 @@ class Post
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $brochureFilename;
+
+    /**
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $imageFilename;
 }

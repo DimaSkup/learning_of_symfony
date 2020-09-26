@@ -1,6 +1,11 @@
 ######################
 #  PostController    #
 ######################
+empty_path:
+  path: /
+  controller: App\Controller\PostsController::emptyPath
+  requirements: {_locale: '%router.locales%'}
+
 blog_posts:
   path: /{_locale}/posts
   controller: App\Controller\PostsController::posts
@@ -13,7 +18,7 @@ blog_search:
 
 new_blog_post:
   path: /{_locale}/posts/new
-  controller: App\Controller\PostsController::addPost
+  controller: App\Controller\PostsController::new
   requirements: {_locale: '%router.locales%'}
 
 blog_post_edit:

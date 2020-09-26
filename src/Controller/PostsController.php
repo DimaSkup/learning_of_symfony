@@ -8,6 +8,10 @@ use App\Form\PostType;
 use App\Repository\PostRepository;
 use Cocur\Slugify\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,6 +26,11 @@ class PostsController extends AbstractController
     public function __construct(PostRepository $postRepository)
     {
         $this->postRepository = $postRepository;
+    }
+
+    public function emptyPath()
+    {
+        return $this->redirectToRoute("blog_posts", ['_locale' => 'en']);
     }
 
     /**
@@ -57,18 +66,36 @@ class PostsController extends AbstractController
      *
      * @return Response
      */
-    public function addPost(Request $request, Slugify $slugify)
+    public function new(Request $request, Slugify $slugify)
     {
         $post = new Post();
         $form = $this->createForm(PostType::class, $post);
-
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            // Handling of the PDF document
+            /** @var UploadedFile $brochureFile */
+            $brochureFile = $form->get('brochure')->getData();
+
+            if ($brochureFile)
+            {
+                $this->handleBrochureFile($post, $brochureFile, 'brochures_directory');
+            }
+
+            // Handling of the Image (JPG|PNG|GIF) file
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form->get('image')->getData();
+
+            if ($imageFile)
+            {
+                $this->handleImageFile($post, $imageFile, 'images_directory');
+            }
+
             $post->setSlug($slugify->slugify($post->getTitle()));
             $post->setCreatedAt(new \DateTime());
 
+            // Save the data in the Database
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($post);
@@ -95,6 +122,25 @@ class PostsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            // Handling of the PDF document
+            /** @var UploadedFile $brochureFile */
+            $brochureFile = $form->get('brochure')->getData();
+
+            if ($brochureFile)
+            {
+                $this->handleBrochureFile($post, $brochureFile, 'brochures_directory');
+            }
+
+            // Handling of the Image (JPG|PNG|GIF) file
+            /** @var UploadedFile $imageFile */
+            $imageFile = $form->get('image')->getData();
+
+            if ($imageFile)
+            {
+                $this->handleImageFile($post, $imageFile, 'images_directory');
+            }
+
+            // Save the data in the Database
             $em = $this->getDoctrine()->getManager();
 
             $post->setSlug($slugify->slugify($post->getTitle()));
@@ -132,6 +178,68 @@ class PostsController extends AbstractController
         return $this->render('posts/show.html.twig', [
             'post' => $post
         ]);
+    }
+
+
+    /**
+     * @param Post $post
+     * @param UploadedFile $brochureFile
+     * @param string $wayToPlace
+     */
+    public function handleBrochureFile($post, $brochureFile, $wayToPlace)
+    {
+        $newBrochureFilename = $this->getNewFilename($brochureFile);
+        $this->handleFile($brochureFile, $newBrochureFilename, $wayToPlace);
+        if ($post->getBrochureFilename())
+            unlink($this->getParameter($wayToPlace).'/'.$post->getBrochureFilename());
+        $post->setBrochureFilename($newBrochureFilename);
+    }
+
+    /**
+     * @param Post $post
+     * @param UploadedFile $imageFile
+     * @param string $wayToPlace
+     */
+    public function handleImageFile($post, $brochureFile, $wayToPlace)
+    {
+        $newBrochureFilename = $this->getNewFilename($brochureFile);
+        $this->handleFile($brochureFile, $newBrochureFilename, $wayToPlace);
+        if ($post->getImageFilename())
+            unlink($this->getParameter($wayToPlace).'/'.$post->getImageFilename());
+        $post->setImageFilename($newBrochureFilename);
+    }
+
+    /**
+     * @param UploadedFile $brochureFile
+     * @param string $wayToPlace
+     * @return void
+     */
+    private function handleFile($uploadedFile, $newFilename, $wayToPlace): void
+    {
+        try
+        {
+            $uploadedFile->move(
+                $this->getParameter($wayToPlace),
+                $newFilename
+            );
+        }
+        catch (FileException $e)
+        {
+            throw new FileException("Error: the file can't be uploaded");
+        }
+    }
+
+    /**
+     * @param $uploadedFile $uploadedFile
+     * @return string $newFilename
+     */
+    private function getNewFilename($uploadedFile): string
+    {
+        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
+        $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9] remove; Lower()', $originalFilename);
+        $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
+
+        return $newFilename;
     }
 
     /** @var PostRepository $postRepository */
