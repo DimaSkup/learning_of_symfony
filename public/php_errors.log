@@ -104,3 +104,8 @@ Stack trace:
 [26-Sep-2020 09:01:35 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [26-Sep-2020 10:50:20 Europe/Helsinki] 2020-09-26T10:50:20+03:00 [critical] Uncaught Error: syntax error, unexpected ')'
 [26-Sep-2020 12:40:56 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 10:18:11 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 10:30:37 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 12:46:33 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 14:26:39 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 14:41:57 Europe/Helsinki] 2020-09-27T14:41:57+03:00 [critical] Uncaught Error: syntax error, unexpected ';', expecting ')'

@@ -6,6 +6,14 @@
 
 {{ 'posts.text'|trans }}
 
+<div>
+    {% for pageNum in pageNumList %}
+        <ul>
+            <li>{{ pageNum }}</li>
+        </ul>
+    {% endfor %}
+</div>
+
 <p><a href="{{ path('new_blog_post') }}">Create a new post</a></p>
 
 <div>

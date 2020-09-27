@@ -29,10 +29,12 @@ class AppFixtures extends Fixture
         for ($i = 1; $i < 20; $i++)
         {
             $post = new Post();
-            $post->setTitle($this->faker->text(100));
-            $post->setSlug($this->slug->slugify($post->getTitle()));
-            $post->setBody($this->faker->text(1000));
-            $post->setCreatedAt($this->faker->dateTime);
+            $post->setTitle($this->faker->text(100))
+                 ->setSlug($this->slug->slugify($post->getTitle()))
+                 ->setBody($this->faker->text(1000))
+                 ->setCreatedAt($this->faker->dateTime)
+                 ->setIsModerated(true);
+
 
             $manager->persist($post);
         }

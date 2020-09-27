@@ -17,6 +17,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Service\PostPaginator;
+
 class PostsController extends AbstractController
 {
     /**
@@ -36,12 +38,19 @@ class PostsController extends AbstractController
     /**
      * @return Response
      */
-    public function posts()
+    public function posts(Request $request)
     {
-        $posts = $this->postRepository->findAll();
+        //dd($request->attributes);
+        //$posts = $this->postRepository->findAll();
+        //$posts = $this->getPaginator($request);
+
+        $postPaginator = new PostPaginator($this->postRepository, $request);
+        $posts = $postPaginator->getPostsSet();
+        $pageNumberList = $postPaginator->getPageNumberList();
 
         return $this->render('posts/index.html.twig', [
             'posts' => $posts,
+            'pageNumList' => $pageNumberList,
         ]);
     }
 
@@ -74,6 +83,20 @@ class PostsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            // ReCaptcha handling
+            if (!$_POST['g-recaptcha-response'])
+                exit('Please, fill the ReCaptcha');
+
+            $url = 'https://www.google.com/recaptcha/api/siteverify';
+            $key = '6Lft7qwZAAAAAMTUH3WFuGV18ekY3y3U4_VP3fvB';
+            $query = $url.'?secret='.$key.'&response='.$_POST['g-recaptcha-response'].'&remoteip='.$_SERVER['REMOTE_ADDR'];
+            $data = json_decode(file_get_contents($query));
+
+            if ($data->success == false)
+                exit("Captcha was inputted incorrectly. Please, try again");
+
+
+
             // Handling of the PDF document
             /** @var UploadedFile $brochureFile */
             $brochureFile = $form->get('brochure')->getData();
@@ -94,6 +117,14 @@ class PostsController extends AbstractController
 
             $post->setSlug($slugify->slugify($post->getTitle()));
             $post->setCreatedAt(new \DateTime());
+
+
+
+            $post->setIsModerated(true);
+
+
+
+
 
             // Save the data in the Database
             $em = $this->getDoctrine()->getManager();
@@ -241,6 +272,7 @@ class PostsController extends AbstractController
 
         return $newFilename;
     }
+
 
     /** @var PostRepository $postRepository */
     private $postRepository;

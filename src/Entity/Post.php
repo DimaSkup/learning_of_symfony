@@ -65,10 +65,12 @@ class Post
 
     /**
      * @param mixed $slug
+     * @return Post
      */
-    public function setSlug($slug): void
+    public function setSlug($slug): self
     {
         $this->slug = $slug;
+        return $this;
     }
 
     /**
@@ -81,10 +83,12 @@ class Post
 
     /**
      * @param \DateTimeInterface $created_at
+     * @return Post
      */
-    public function setCreatedAt(\DateTimeInterface $created_at): void
+    public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
+        return $this;
     }
 
     /**
@@ -126,6 +130,24 @@ class Post
     }
 
     /**
+     * @return bool
+     */
+    public function getIsModerated(): bool
+    {
+        return $this->isModerated;
+    }
+
+    /**
+     * @param bool $isModerated
+     * @return Post
+     */
+    public function setIsModerated(bool $isModerated): self
+    {
+        $this->isModerated = $isModerated;
+        return $this;
+    }
+
+    /**
      * @ORM\Id
      * @ORM\GeneratedValue
      * @ORM\Column(type="integer")
@@ -159,7 +181,22 @@ class Post
     private $brochureFilename;
 
     /**
+     * @var string|null
+     * @Assert\Image
      * @ORM\Column(type="string", nullable=true)
      */
     private $imageFilename;
+
+    /**
+     * @var bool
+     * @ORM\Column(name="is_moderated", type="boolean", nullable=false)
+     */
+    private $isModerated;
+
+    /**
+     * @var string[]
+     *
+     * @ORM\Column(type="string", nullable=true)
+     */
+    private $comments;
 }

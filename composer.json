@@ -13,6 +13,7 @@
         "doctrine/doctrine-migrations-bundle": "^3.0",
         "doctrine/orm": "^2.7",
         "fzaninotto/faker": "^1.9",
+        "google/recaptcha": "^1.2",
         "knpuniversity/oauth2-client-bundle": "^2.3",
         "league/oauth2-github": "^2.0",
         "league/oauth2-google": "^3.0",
@@ -42,7 +43,8 @@
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "4.4.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/twig": "^2.12|^3.0",
+      "ext-json": "*"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.3",
