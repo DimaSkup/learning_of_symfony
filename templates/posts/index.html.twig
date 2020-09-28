@@ -4,23 +4,77 @@
 
 {% block body %}
 
-{{ 'posts.text'|trans }}
+    <div class="pagination">
+        {% set currentPageNum = app.request.attributes.get('page') %}
 
-<div>
-    {% for pageNum in pageNumList %}
-        <ul>
-            <li>{{ pageNum }}</li>
-        </ul>
-    {% endfor %}
-</div>
+        <!-- BUTTON "FIRST" AND "<" -->
+        {% if currentPageNum == 1 %}
+            <li><a href="#" class="not_active_link">First</a></li>
+            <li><a href="#" class="not_active_link"><</a></li>
+        {% else %}
+            <li><a href="{{ path("blog_posts", {"page": 1}) }}" class="active_link">First</a></li>
+            <li><a href="{{ path("blog_posts", {"page": currentPageNum - 1}) }}" class="active_link"><</a></li>
+        {% endif %}
 
-<p><a href="{{ path('new_blog_post') }}">Create a new post</a></p>
+        <!-- PAGINATION PAGE NUMBER LIST -->
+        {% for key, pageNum in pageNumList %}
+            {% if pageNum <= countOfPages %}
 
-<div>
-    {% for post in posts %}
-        <a href="{{ path('blog_show', {'slug': post.slug}) }}">{{ post.title }}</a><br/><br/>
-    {% endfor %}
-</div>
+                {% if pageNum == currentPageNum %}
+                    <!-- reference to the current page -->
+                    <li id="current_page"><a href="#">{{ pageNum }}</a></li>
+                {% else %}
+                    <!-- reference to not current page -->
+                    <li><a href="{{ path("blog_posts", {'page': pageNum}) }}" class="active_link">{{ pageNum }}</a></li>
+                {% endif %}
+            {% else %}
+                <!-- reference to page with number which is higher than countOfPage -->
+                <li><a href="#" class="not_active_link">{{ pageNum }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        <!-- BUTTON "LAST" AND ">" -->
+        <!-- Case 1: buttons "last" and ">" are active -->
+        {% if currentPageNum != countOfPages %}
+            <li><a href="{{ path("blog_posts", {"page": countOfPages}) }}" class="active_link">Last</a></li>
+            <li><a href="{{ path("blog_posts", {"page": currentPageNum + 1}) }}" class="active_link">></a></li>
+        <!-- Case 2: disable "last" and ">" button -->
+        {% else %}
+            <li><a href="#" class="not_active_link">Last</a></li>
+            <li><a href="#" class="not_active_link">></a></li>
+        {% endif %}
+    </div>
+
+
+    <div class="create_new_post">
+        <a href="{{ path('new_blog_post') }}">Create a new post</a>
+    </div>
+
+
+    <!-- LIST OF THE POSTS -->
+    <div class="posts">
+        <div class="order_by_button">
+            <ul id="order_by">
+                <li><a href="#">Order By</a>
+                    <ul>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path('blog_posts', {'display_order': 'email'}) }}">Email</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}">Username</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}">Created at</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        {% for post in posts %}
+            <div id="post">
+                <a href="{{ path('blog_show', {'slug': post.slug}) }}" >{{ post.title }}</a><br/><br/>
+                <ul class="info_post">
+                    <li>{{ post.username }}</li>
+                    <li>{{ post.email }}</li>
+                    <li>{{ post.createdAtString }}</li>
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
 
 
 

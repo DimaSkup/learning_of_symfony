@@ -47,10 +47,12 @@ class PostsController extends AbstractController
         $postPaginator = new PostPaginator($this->postRepository, $request);
         $posts = $postPaginator->getPostsSet();
         $pageNumberList = $postPaginator->getPageNumberList();
+        $countOfPages = $postPaginator->getCountOfPages();
 
         return $this->render('posts/index.html.twig', [
             'posts' => $posts,
             'pageNumList' => $pageNumberList,
+            'countOfPages' => $countOfPages,
         ]);
     }
 

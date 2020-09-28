@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use DateTime;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
@@ -29,7 +31,7 @@ class User implements UserInterface
     {
         $this->setRoles([self::ROLE_USER]);
         $this->setLastLoginTime(new DateTime('now'));
-        //$this->posts = new ArrayCollection();
+        $this->posts = new ArrayCollection();
 
         // if any parameters are transferred to the constructor, we call the function
         // which will process them, differently we continue work of the constructor
@@ -406,4 +408,40 @@ class User implements UserInterface
      * @ORM\Column(type="string", nullable=true)
      */
     private $clientId;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Post::class, mappedBy="user")
+     */
+    private $posts;
+
+    /**
+     * @return Collection|Post[]
+     */
+    public function getPosts(): Collection
+    {
+        return $this->posts;
+    }
+
+    public function addPost(Post $post): self
+    {
+        if (!$this->posts->contains($post)) {
+            $this->posts[] = $post;
+            $post->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removePost(Post $post): self
+    {
+        if ($this->posts->contains($post)) {
+            $this->posts->removeElement($post);
+            // set the owning side to null (unless already changed)
+            if ($post->getUser() === $this) {
+                $post->setUser(null);
+            }
+        }
+
+        return $this;
+    }
 }

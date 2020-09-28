@@ -92,6 +92,14 @@ class Post
     }
 
     /**
+     * @return string
+     */
+    public function getCreatedAtString(): string
+    {
+        return date("Y-m-d H:i:s", $this->created_at->getTimestamp());
+    }
+
+    /**
      * @return string|null
      */
     public function getBrochureFilename(): ?string
@@ -147,6 +155,45 @@ class Post
         return $this;
     }
 
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User|null $user
+     * @return $this
+     */
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUsername(): string
+    {
+        return $this->user->getUsername();
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail(): string
+    {
+        return $this->user->getEmail();
+    }
+
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -185,18 +232,11 @@ class Post
      * @Assert\Image
      * @ORM\Column(type="string", nullable=true)
      */
-    private $imageFilename;
+     private $imageFilename;
 
     /**
      * @var bool
      * @ORM\Column(name="is_moderated", type="boolean", nullable=false)
      */
     private $isModerated;
-
-    /**
-     * @var string[]
-     *
-     * @ORM\Column(type="string", nullable=true)
-     */
-    private $comments;
 }

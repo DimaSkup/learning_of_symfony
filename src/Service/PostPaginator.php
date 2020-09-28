@@ -17,7 +17,7 @@ class PostPaginator
         $requestData = $request->attributes->all();
        // $request->getParameter('page_number');
 
-        $this->pageNumber = intval($requestData['page_number']);
+        $this->pageNumber = intval($requestData['page']);
         $this->sortBy = $requestData['display_order'];
         $this->resultsPerPage = intval($requestData['results_per_page']);
         $this->postRepository = $postRepository;
@@ -25,14 +25,31 @@ class PostPaginator
 
     public function getPostsSet()
     {
-        return $this->postRepository->findAllPaginated($this->countOfPages, $this->pageNumber, $this->resultsPerPage);
+        $posts = $this->postRepository->findAllPaginated($this->countOfPages, $this->pageNumber, $this->resultsPerPage);
+        $posts = $this->sortPostSetBy($posts, $this->sortBy);
+        return $posts;
     }
 
     public function getPageNumberList()
     {
-        return [
-            '1' => $this->pageNumber,
-        ];
+        if ($this->isBetween($this->pageNumber, 1, 3))
+            return range(1, 5);
+        else
+            return [
+                '1' => $this->pageNumber - 2,
+                '2' => $this->pageNumber - 1,
+                '3' => $this->pageNumber,
+                '4' => $this->pageNumber + 1,
+                '5' => $this->pageNumber + 2,
+            ];
+    }
+
+    /**
+     * @return int
+     */
+    public function getCountOfPages(): int
+    {
+        return $this->countOfPages;
     }
 
     public function sortPostSetBy($postSetForSort, $sortBy, $order = "ASC")
@@ -74,6 +91,12 @@ class PostPaginator
         }
 
         return $postSetForSort;
+    }
+
+    // checking if the number n is in the range between a and b
+    private function isBetween($n, $a, $b)
+    {
+        return ($n-$a)*($n-$b) <= 0;
     }
 
 
