@@ -7,6 +7,10 @@
     <script src="{{ asset('build/js/app.js') }}"></script>
     <script src="https://www.google.com/recaptcha/api.js"></script>
     {% block stylesheets %}{% endblock %}
+
+
+    {% set currentRoute = app.request.attributes.get('_route') %}
+
 </head>
 <body>
     <ul id="navbar">

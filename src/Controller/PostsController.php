@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Post;
 
+use App\Entity\User;
 use App\Form\PostType;
 use App\Repository\PostRepository;
 use Cocur\Slugify\Slugify;
@@ -48,6 +49,13 @@ class PostsController extends AbstractController
         $posts = $postPaginator->getPostsSet();
         $pageNumberList = $postPaginator->getPageNumberList();
         $countOfPages = $postPaginator->getCountOfPages();
+
+        // Setting user's data for the each post
+        foreach($posts as $post)
+        {
+            $user = $this->getDoctrine()->getRepository(User::class)->findOneBy(['id' => $post->getUser()->getId()]);
+            $post->setUser($user);
+        }
 
         return $this->render('posts/index.html.twig', [
             'posts' => $posts,

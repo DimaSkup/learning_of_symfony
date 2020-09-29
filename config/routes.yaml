@@ -7,13 +7,13 @@ empty_path:
   requirements: {_locale: '%router.locales%'}
 
 blog_posts:
-  path: /{_locale}/posts/{page}/{results_per_page}/{sort_by}/{display_order}
+  path: /{_locale}/posts/{page}/{results_per_page}/{display_order}/{date_sort_order}
   controller: App\Controller\PostsController::posts
   defaults:
     page: 1
     results_per_page: 10
-    sort_by: 'created_at'
-    display_order: 'DESC'
+    display_order: 'created_at'
+    date_sort_order: 'DESC'
   requirements:
     _locale: '%router.locales%'
     page: '\d+'

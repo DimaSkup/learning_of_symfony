@@ -12,6 +12,16 @@ use Symfony\Component\Validator\Constraints as Assert;
 class Post
 {
     /**
+     * Post constructor.
+     */
+    public function __construct()
+    {
+        //dd();
+        //$this->setCreatedAt();
+       //
+    }
+
+    /**
      * @return int|null
      */
     public function getId(): ?int
@@ -156,12 +166,6 @@ class Post
     }
 
 
-    /**
-     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $user;
-
     public function getUser(): ?User
     {
         return $this->user;
@@ -183,7 +187,16 @@ class Post
      */
     public function getUsername(): string
     {
-        return $this->user->getUsername();
+        return (string)$this->user->getUsername();
+    }
+
+    /**
+     * @param string $username
+     * @return Post
+     */
+    public function setUsername(string $username): self
+    {
+        $this->username = $username;
     }
 
     /**
@@ -191,7 +204,17 @@ class Post
      */
     public function getEmail(): string
     {
-        return $this->user->getEmail();
+        return (string )$this->user->getEmail();
+    }
+
+    /**
+     * @param string $email
+     * @return Post
+     */
+    public function setEmail($email): self
+    {
+        $this->userEmail = $email;
+        return $this;
     }
 
     /**
@@ -239,4 +262,11 @@ class Post
      * @ORM\Column(name="is_moderated", type="boolean", nullable=false)
      */
     private $isModerated;
+
+    /**
+     * @ORM\ManyToOne(targetEntity=User::class, inversedBy="posts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $user;
+
 }

@@ -111,3 +111,10 @@ Stack trace:
 [27-Sep-2020 14:41:57 Europe/Helsinki] 2020-09-27T14:41:57+03:00 [critical] Uncaught Error: syntax error, unexpected ';', expecting ')'
 [28-Sep-2020 09:00:44 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [28-Sep-2020 12:27:45 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 10:54:44 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 11:35:08 Europe/Helsinki] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/dima/blog/vendor/twig/twig/src/Extension/ProfilerExtension.php on line 33
+[29-Sep-2020 11:35:10 Europe/Helsinki] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/dima/blog/vendor/symfony/error-handler/Resources/views/logs.html.php on line 28
+[29-Sep-2020 11:35:15 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 11:45:34 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 11:48:36 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 12:14:45 Europe/Helsinki] 2020-09-29T12:14:45+03:00 [critical] Uncaught Error: syntax error, unexpected 'z' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)

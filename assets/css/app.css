@@ -173,7 +173,7 @@ body {
 
 /* POSTS */
 /* index.html.twig */
-.posts
+#posts
 {
     padding: 20px;
     background-color: #FCF3CF;
@@ -244,23 +244,30 @@ body {
 
 /* SINGLE POST STYLE */
 /* index.html.twig */
-#post
+#posts .post
 {
     border-bottom: 2px solid goldenrod;
     margin-bottom: 20px;
 }
 
-#post a
+#posts .post a
 {
     padding: 10px;
     text-decoration: none;
     color: #7E5109;
 }
 
-#post .info_post
+#posts .post ul li
 {
-    list-style-type: none;
+    display: inline;
+    padding-right: 10px;
 }
+
+
+
+
+
+
 
 
 

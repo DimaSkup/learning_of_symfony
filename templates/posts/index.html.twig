@@ -51,21 +51,24 @@
     </div>
 
 
-    <!-- LIST OF THE POSTS -->
-    <div class="posts">
+    <!-- DISPLAYING OF THE POSTS -->
+    <div id="posts">
         <div class="order_by_button">
             <ul id="order_by">
                 <li><a href="#">Order By</a>
                     <ul>
-                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path('blog_posts', {'display_order': 'email'}) }}">Email</a></li>
-                        <li><a href="{{ app.request.schemeAndHttpHost }}">Username</a></li>
-                        <li><a href="{{ app.request.schemeAndHttpHost }}">Created at</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path(currentRoute, {'display_order': 'email'}) }}">Email</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path(currentRoute, {'display_order': 'username'}) }}">Username</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path(currentRoute, {'display_order': 'createdAt', 'date_sort_order': 'DESC'}) }}">First new</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path(currentRoute, {'display_order': 'createdAt', 'date_sort_order': 'ASC'}) }}">First old</a></li>
                     </ul>
                 </li>
             </ul>
-        </div>
+        </div> <!-- /ORDER_BY_BUTTON -->
+
+        <!-- LIST OF THE POSTS -->
         {% for post in posts %}
-            <div id="post">
+            <div class="post">
                 <a href="{{ path('blog_show', {'slug': post.slug}) }}" >{{ post.title }}</a><br/><br/>
                 <ul class="info_post">
                     <li>{{ post.username }}</li>

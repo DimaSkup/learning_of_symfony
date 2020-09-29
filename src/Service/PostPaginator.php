@@ -18,7 +18,8 @@ class PostPaginator
        // $request->getParameter('page_number');
 
         $this->pageNumber = intval($requestData['page']);
-        $this->sortBy = $requestData['display_order'];
+        $this->displayOrder = $requestData['display_order'];
+        $this->dateSortOrder = $requestData['date_sort_order'];
         $this->resultsPerPage = intval($requestData['results_per_page']);
         $this->postRepository = $postRepository;
     }
@@ -26,7 +27,7 @@ class PostPaginator
     public function getPostsSet()
     {
         $posts = $this->postRepository->findAllPaginated($this->countOfPages, $this->pageNumber, $this->resultsPerPage);
-        $posts = $this->sortPostSetBy($posts, $this->sortBy);
+        $posts = $this->sortPostSetBy($posts, $this->displayOrder, $this->dateSortOrder);
         return $posts;
     }
 
@@ -52,9 +53,10 @@ class PostPaginator
         return $this->countOfPages;
     }
 
-    public function sortPostSetBy($postSetForSort, $sortBy, $order = "ASC")
+    public function sortPostSetBy($postSetForSort, $sortBy, $order)
     {
-        if ($sortBy === "created_at")
+
+        if ($sortBy === "createdAt")
         {
             if ($order === "DESC")
             {
@@ -101,8 +103,10 @@ class PostPaginator
 
 
     private $postRepository;
-    private $sortBy;
+    private $displayOrder;
+    private $dateSortOrder;
     private $countOfPages;
     private $pageNumber;
     private $resultsPerPage;
+
 }

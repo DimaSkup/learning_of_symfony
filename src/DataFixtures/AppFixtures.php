@@ -73,7 +73,7 @@ class AppFixtures extends Fixture
                  ->setPassword($encodedPassword)
                  ->setRoles([User::ROLE_USER])
                  ->setEnabled(true)
-                 ->setUsername('user'. $i)
+                 ->setUsername($this->faker->text(10))
                  ->setOAuthType('legasy')
                  ->setLastLoginTime(new DateTime('now'));
 

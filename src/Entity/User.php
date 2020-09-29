@@ -422,6 +422,7 @@ class User implements UserInterface
         return $this->posts;
     }
 
+
     public function addPost(Post $post): self
     {
         if (!$this->posts->contains($post)) {
