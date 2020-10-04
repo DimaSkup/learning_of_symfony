@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostsController!{% endblock %}
+
+{% block body %}
+
+    {{ form_start(form) }}
+        <p>{{ form_widget(form.title) }}</p>
+        <p>
+            {{ form_widget(form.body, {'attr': {
+                'rows' : '10',
+                'cols' : '10'  }}) }}
+        </p>
+        <p>
+            Brochure (PDF file): {{ form_widget(form.brochure) }}
+        </p>
+        <p>
+            Image (JPG|PNG|GIF file): {{ form_widget(form.image) }}
+        </p>
+    <div class="g-recaptcha" data-sitekey="6Lft7qwZAAAAAEEe3JtEoGhlKDp6c8mcqinPq-PR"></div>
+    <p><button class="btn btn-default" type="submit">Save</button></p>
+    {{ form_end(form) }}
+
+{% endblock %}

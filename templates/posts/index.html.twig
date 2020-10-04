@@ -1,0 +1,84 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostsController!{% endblock %}
+
+{% block body %}
+
+    <div class="pagination">
+        {% set currentPageNum = app.request.attributes.get('page') %}
+
+        <!-- BUTTON "FIRST" AND "<" -->
+        {% if currentPageNum == 1 %}
+            <li><a href="#" class="not_active_link">First</a></li>
+            <li><a href="#" class="not_active_link"><</a></li>
+        {% else %}
+            <li><a href="{{ path("blog_posts", {"page": 1}) }}" class="active_link">First</a></li>
+            <li><a href="{{ path("blog_posts", {"page": currentPageNum - 1}) }}" class="active_link"><</a></li>
+        {% endif %}
+
+        <!-- PAGINATION PAGE NUMBER LIST -->
+        {% for key, pageNum in pageNumList %}
+            {% if pageNum <= countOfPages %}
+
+                {% if pageNum == currentPageNum %}
+                    <!-- reference to the current page -->
+                    <li id="current_page"><a href="#">{{ pageNum }}</a></li>
+                {% else %}
+                    <!-- reference to not current page -->
+                    <li><a href="{{ path("blog_posts", {'page': pageNum}) }}" class="active_link">{{ pageNum }}</a></li>
+                {% endif %}
+            {% else %}
+                <!-- reference to page with number which is higher than countOfPage -->
+                <li><a href="#" class="not_active_link">{{ pageNum }}</a></li>
+            {% endif %}
+        {% endfor %}
+
+        <!-- BUTTON "LAST" AND ">" -->
+        <!-- Case 1: buttons "last" and ">" are active -->
+        {% if currentPageNum != countOfPages %}
+            <li><a href="{{ path("blog_posts", {"page": countOfPages}) }}" class="active_link">Last</a></li>
+            <li><a href="{{ path("blog_posts", {"page": currentPageNum + 1}) }}" class="active_link">></a></li>
+        <!-- Case 2: disable "last" and ">" button -->
+        {% else %}
+            <li><a href="#" class="not_active_link">Last</a></li>
+            <li><a href="#" class="not_active_link">></a></li>
+        {% endif %}
+    </div>
+
+
+    <div class="create_new_post">
+        <a href="{{ path('new_blog_post') }}">Create a new post</a>
+    </div>
+
+
+    <!-- DISPLAYING OF THE POSTS -->
+    <div id="posts">
+        <div class="order_by_button">
+            <ul id="order_by">
+                <li><a href="#">Order By</a>
+                    <ul>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path(currentRoute, {'display_order': 'email'}) }}">Email</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path(currentRoute, {'display_order': 'username'}) }}">Username</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path(currentRoute, {'display_order': 'createdAt', 'date_sort_order': 'DESC'}) }}">First new</a></li>
+                        <li><a href="{{ app.request.schemeAndHttpHost }}{{ path(currentRoute, {'display_order': 'createdAt', 'date_sort_order': 'ASC'}) }}">First old</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div> <!-- /ORDER_BY_BUTTON -->
+
+        <!-- LIST OF THE POSTS -->
+        {% for post in posts %}
+            <div class="post">
+                <a href="{{ path('blog_show', {'slug': post.slug}) }}" >{{ post.title }}</a><br/><br/>
+                <ul class="info_post">
+                    <li>{{ post.username }}</li>
+                    <li>{{ post.email }}</li>
+                    <li>{{ post.createdAtString }}</li>
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+
+
+
+{% endblock %}

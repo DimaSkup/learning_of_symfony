@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Searching results!{% endblock %}
+
+{% block body %}
+    {% for post in posts %}
+        <div class="media text-muted">
+            <p class="media-body">
+                <a href="{{ path('blog_show', {slug: post.slug}) }}">{{ post.title }}</a>
+                    {{ post.body | slice(0, 255) ~ '...' }}
+            </p>
+        </div>
+    {% endfor %}
+    <small class="d-block">
+        <a href="{{ path('blog_posts') }}">To main page</a>
+    </small>
+{% endblock %}

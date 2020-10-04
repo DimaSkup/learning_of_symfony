@@ -1,0 +1,128 @@
+[12-Sep-2020 10:42:13 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[12-Sep-2020 12:08:46 Europe/Helsinki] 2020-09-12T12:08:46+03:00 [critical] Uncaught Exception: Cannot determine controller argument for "App\Controller\PostsController::post()": the $post argument is type-hinted with the non-existent class or interface: "App\Controller\Post". Did you forget to add a use statement?
+[14-Sep-2020 11:30:40 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[15-Sep-2020 09:41:39 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[17-Sep-2020 07:34:23 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[17-Sep-2020 10:08:18 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[18-Sep-2020 07:36:55 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[19-Sep-2020 07:23:10 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[21-Sep-2020 09:06:20 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[22-Sep-2020 12:46:57 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[23-Sep-2020 11:28:08 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[23-Sep-2020 12:51:09 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:10 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:16 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:19 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:19 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:30 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[23-Sep-2020 12:51:31 Europe/Helsinki] PHP Fatal error:  Uncaught Symfony\Component\Dotenv\Exception\FormatException: A value containing spaces must be surrounded by quotes in "/home/dima/blog/.env" at line 49.
+...en // default locale...
+                      ^ line 49 offset 2245 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php:503
+Stack trace:
+#0 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(324): Symfony\Component\Dotenv\Dotenv->createFormatException()
+#1 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(200): Symfony\Component\Dotenv\Dotenv->lexValue()
+#2 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(513): Symfony\Component\Dotenv\Dotenv->parse()
+#3 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(65): Symfony\Component\Dotenv\Dotenv->doLoad()
+#4 /home/dima/blog/vendor/symfony/dotenv/Dotenv.php(85): Symfony\Component\Dotenv\Dotenv->load()
+#5 /home/dima/blog/config/bootstrap.php(17): Symfony\Component\Dotenv\Dotenv->loadEnv()
+#6 /home/dima/blog/public/index.php(7): require('/home/dima/blog...')
+#7 /home/dima/.symfony/php/4f12e83bfca378bb07077700a7da03384 in /home/dima/blog/vendor/symfony/dotenv/Dotenv.php on line 503
+[25-Sep-2020 09:10:18 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[25-Sep-2020 09:48:10 Europe/Helsinki] 2020-09-25T09:48:10+03:00 [critical] Uncaught Error: syntax error, unexpected 'elseif' (T_ELSEIF)
+[25-Sep-2020 10:01:33 Europe/Helsinki] 2020-09-25T10:01:33+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 10:01:35 Europe/Helsinki] 2020-09-25T10:01:35+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 10:01:36 Europe/Helsinki] 2020-09-25T10:01:36+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 10:01:37 Europe/Helsinki] 2020-09-25T10:01:37+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 10:01:38 Europe/Helsinki] 2020-09-25T10:01:38+03:00 [critical] Uncaught Error: syntax error, unexpected 'if' (T_IF)
+[25-Sep-2020 13:57:57 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[26-Sep-2020 09:01:35 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[26-Sep-2020 10:50:20 Europe/Helsinki] 2020-09-26T10:50:20+03:00 [critical] Uncaught Error: syntax error, unexpected ')'
+[26-Sep-2020 12:40:56 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 10:18:11 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 10:30:37 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 12:46:33 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 14:26:39 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[27-Sep-2020 14:41:57 Europe/Helsinki] 2020-09-27T14:41:57+03:00 [critical] Uncaught Error: syntax error, unexpected ';', expecting ')'
+[28-Sep-2020 09:00:44 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[28-Sep-2020 12:27:45 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 10:54:44 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 11:35:08 Europe/Helsinki] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/dima/blog/vendor/twig/twig/src/Extension/ProfilerExtension.php on line 33
+[29-Sep-2020 11:35:10 Europe/Helsinki] PHP Fatal error:  Maximum execution time of 60 seconds exceeded in /home/dima/blog/vendor/symfony/error-handler/Resources/views/logs.html.php on line 28
+[29-Sep-2020 11:35:15 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 11:45:34 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 11:48:36 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[29-Sep-2020 12:14:45 Europe/Helsinki] 2020-09-29T12:14:45+03:00 [critical] Uncaught Error: syntax error, unexpected 'z' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)
+[03-Oct-2020 13:10:51 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[03-Oct-2020 13:12:18 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[03-Oct-2020 13:16:55 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[03-Oct-2020 13:27:43 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[04-Oct-2020 16:29:28 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[04-Oct-2020 16:31:12 Europe/Helsinki] 2020-10-04T16:31:12+03:00 [critical] Uncaught Error: syntax error, unexpected '===' (T_IS_IDENTICAL), expecting end of file
+[04-Oct-2020 16:31:43 Europe/Helsinki] PHP Fatal error:  Cannot redeclare App\Admin\PostAdmin::configureFormFields() in /home/dima/blog2/src/Admin/PostAdmin.php on line 50
+[04-Oct-2020 16:32:00 Europe/Helsinki] PHP Fatal error:  Cannot redeclare App\Admin\PostAdmin::configureFormFields() in /home/dima/blog2/src/Admin/PostAdmin.php on line 48

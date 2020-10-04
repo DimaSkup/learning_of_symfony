@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Registration {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+        <h3 class="">Registration</h3>
+        {{ form_start(form) }}
+        <p>
+            Email:
+            {{ form_widget(form.email, {
+                'label': " "
+            }) }}
+        </p>
+        <p>
+            Username:
+            {{ form_widget(form.username, {
+                'label': " "
+            }) }}
+        </p>
+        <p>
+            Password:
+            {{ form_widget(form.plainPassword.first, {
+                'label': " ", 'class': 'form-control'
+            }) }}
+        </p>
+        <p>
+            Confirm password:
+            {{ form_widget(form.plainPassword.second, {
+                'label': " ", 'help': "Enter the password again"
+            }) }}
+        </p>
+        <button type="submit" class="btn btn-success" formnovalidate>Register now</button>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}

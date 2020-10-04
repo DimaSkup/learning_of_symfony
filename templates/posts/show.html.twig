@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PostsController!{% endblock %}
+
+{% block body %}
+
+    <p>{{ post.body }}</p>
+
+    <p><a href="{{ path('blog_post_edit', {'slug': post.slug}) }}">Edit</a></p>
+    <p><a href="{{ path('blog_post_delete', {'slug': post.slug}) }}">Delete</a></p>
+    <p><a href="{{ path('blog_posts') }}">To main page</a></p>
+    {% if post.brochureFilename %}
+        <p><a href="{{ asset('uploads/brochures/' ~ post.brochureFilename) }}">View brochure(PDF)</a></p>
+    {% endif %}
+    {% if post.imageFilename %}
+        <p><img src="{{ asset('uploads/images/' ~ post.imageFilename) }}" alt="Image (JPG|PNG|GIF file)"></p>
+    {% endif %}
+{% endblock %}

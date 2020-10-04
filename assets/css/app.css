@@ -1,0 +1,275 @@
+body {
+    margin-top: -.5px;
+    background-color: #ebce6e;
+}
+
+/* NAV BAR */
+
+#navbar
+{
+    height: 40px;
+
+    margin: 0 -8px 0 -8px;
+    list-style-type: none;
+    border: 5px solid goldenrod;
+
+}
+
+#navbar
+{
+    display: flex;
+    background-color: #4db892;
+}
+
+#navbar li
+{
+    float: left;
+    position: relative;
+
+    display: flex;
+    justify-content: left;
+    align-items: center;
+
+}
+
+#navbar li a
+{
+    height: 40px;
+    background-color: #4db892;
+    color: #FFF;
+
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar a:hover
+{
+    background-color: #AA3333;
+}
+
+
+
+
+
+#navbar .language_choice ul
+{
+    display: none;
+}
+
+
+#navbar li:hover ul
+{
+    display: block;
+}
+
+#navbar ul
+{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: none;
+    position: absolute;
+    top: 100%;
+}
+
+#navbar ul li
+{
+    float: none;
+}
+
+#navbar .search_form
+{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+/* PAGINATION */
+.pagination
+{
+    margin: 20px 0 20px 0;
+}
+
+.pagination  li
+{
+    padding: 10px;
+    margin-right: -5px;
+    display: inline;
+    background-color: white;
+    border: 2px solid goldenrod;
+}
+
+.pagination li a
+{
+    margin: 5px;
+    text-decoration: none;
+}
+
+#current_page
+{
+    text-decoration: none;
+    background-color: #F4D03F;
+
+}
+
+#current_page a
+{
+    color: saddlebrown;
+}
+
+.pagination li .active_link
+{
+
+    color: goldenrod;
+    font-family: helvetica;
+}
+
+.pagination li .active_link:hover
+{
+    text-decoration: underline;
+}
+
+.pagination li .active_link:active
+{
+    color: black;
+}
+
+.pagination li .active_link:visited
+{
+    color: saddlebrown;
+}
+
+.not_active_link
+{
+    pointer-events: none;
+    cursor: default;
+
+    color: gray;
+}
+
+/* CREATE NEW POST BUTTON */
+/* index.html.twig */
+.create_new_post
+{
+    width: 150px;
+    margin: 10px 0 10px 0;
+    padding: 10px;
+    background-color: white;
+    border: 2px solid goldenrod;
+    text-align: center;
+}
+
+.create_new_post a
+{
+    text-decoration: none;
+    color: goldenrod;
+}
+
+/* POSTS */
+/* index.html.twig */
+#posts
+{
+    padding: 20px;
+    background-color: #FCF3CF;
+    width: 50%;
+}
+
+.order_by_button
+{
+    width: 115px;
+    margin-left: auto;
+    margin-right: 0em;
+    display: flex;
+    justify-content: end;
+}
+
+#order_by
+{
+    height: 30px;
+    background-color: white;
+
+    width: 100%;
+}
+
+
+#order_by ul
+{
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 100%;
+}
+
+#order_by li:hover ul { display: block; }
+
+#order_by, #order_by ul
+{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+}
+
+#order_by li
+{
+    float: left;
+    margin-left: -2px;
+    position: relative;
+    height: 100%;
+}
+
+#order_by li a
+{
+    display: block;
+    padding: 6px;
+    width: 108px;
+    color: goldenrod;
+    text-decoration: none;
+    text-align: center;
+}
+
+
+#order_by ul li {float: none;}
+
+
+#order_by li:hover { background-color: #ebce6e; }
+
+#order_by ul li:hover { background-color: #ebce6e; }
+
+/* SINGLE POST STYLE */
+/* index.html.twig */
+#posts .post
+{
+    border-bottom: 2px solid goldenrod;
+    margin-bottom: 20px;
+}
+
+#posts .post a
+{
+    padding: 10px;
+    text-decoration: none;
+    color: #7E5109;
+}
+
+#posts .post ul li
+{
+    display: inline;
+    padding-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
