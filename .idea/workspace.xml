@@ -6,13 +6,17 @@
   <component name="ChangeListManager">
     <list default="true" id="cd7ccde0-8f91-47af-87ab-af2ca72d60d1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/services.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/services.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/routes.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/routes.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php_errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/php_errors.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/php_errors.log" beforeDir="false" afterPath="$PROJECT_DIR$/public/php_errors.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Admin/PostAdmin.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Admin/PostAdmin.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/PostsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/PostPaginator.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PostPaginator.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/posts/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/posts/index.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,21 +150,6 @@
       <path value="$PROJECT_DIR$/vendor/symfony/flex" />
       <path value="$PROJECT_DIR$/vendor/symfony/inflector" />
       <path value="$PROJECT_DIR$/vendor/google/recaptcha" />
-      <path value="$PROJECT_DIR$/vendor/jms/serializer" />
-      <path value="$PROJECT_DIR$/vendor/jms/metadata" />
-      <path value="$PROJECT_DIR$/vendor/sonata-project/form-extensions" />
-      <path value="$PROJECT_DIR$/vendor/sonata-project/admin-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sonata-project/block-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sonata-project/cache" />
-      <path value="$PROJECT_DIR$/vendor/sonata-project/doctrine-extensions" />
-      <path value="$PROJECT_DIR$/vendor/sonata-project/exporter" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu-bundle" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-menu" />
-      <path value="$PROJECT_DIR$/vendor/sonata-project/twig-extensions" />
-      <path value="$PROJECT_DIR$/vendor/symfony/security-acl" />
-      <path value="$PROJECT_DIR$/vendor/symfony/string" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-grapheme" />
-      <path value="$PROJECT_DIR$/vendor/twig/string-extra" />
     </include_path>
   </component>
   <component name="ProjectId" id="1hOyknA8tX1tlGUGNF7xMOkA87C" />
@@ -214,9 +203,7 @@
       <workItem from="1601191117837" duration="586000" />
       <workItem from="1601191705229" duration="10204000" />
       <workItem from="1601272902327" duration="19119000" />
-      <workItem from="1601363284155" duration="8316000" />
-      <workItem from="1601457266340" duration="1539000" />
-      <workItem from="1601645812702" duration="5712000" />
+      <workItem from="1601363284155" duration="8174000" />
     </task>
     <servers />
   </component>
@@ -228,14 +215,14 @@
       <screen x="67" y="27" width="1533" height="873" />
     </state>
     <state x="291" y="120" key="#com.intellij.execution.impl.EditConfigurationsDialog/67.27.1533.873@67.27.1533.873" timestamp="1600152045723" />
-    <state x="616" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1601374946605">
+    <state x="616" y="220" width="424" height="484" key="FileChooserDialogImpl" timestamp="1601191702549">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="616" y="220" width="424" height="484" key="FileChooserDialogImpl/67.27.1533.873@67.27.1533.873" timestamp="1601374946605" />
-    <state x="245" y="182" width="465" height="561" key="NewPhpClassDialog" timestamp="1601458404977">
+    <state x="616" y="220" width="424" height="484" key="FileChooserDialogImpl/67.27.1533.873@67.27.1533.873" timestamp="1601191702549" />
+    <state x="245" y="182" width="465" height="561" key="NewPhpClassDialog" timestamp="1601193410153">
       <screen x="67" y="27" width="1533" height="873" />
     </state>
-    <state x="245" y="182" width="465" height="561" key="NewPhpClassDialog/67.27.1533.873@67.27.1533.873" timestamp="1601458404977" />
+    <state x="245" y="182" width="465" height="561" key="NewPhpClassDialog/67.27.1533.873@67.27.1533.873" timestamp="1601193410153" />
     <state x="50" y="154" key="SettingsEditor" timestamp="1601278350722">
       <screen x="67" y="27" width="1533" height="873" />
     </state>

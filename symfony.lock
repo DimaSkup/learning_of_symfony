@@ -126,18 +126,6 @@
     "guzzlehttp/psr7": {
         "version": "1.6.1"
     },
-    "jms/metadata": {
-        "version": "2.3.0"
-    },
-    "jms/serializer": {
-        "version": "3.9.0"
-    },
-    "knplabs/knp-menu": {
-        "version": "v3.1.2"
-    },
-    "knplabs/knp-menu-bundle": {
-        "version": "v3.0.0"
-    },
     "knpuniversity/oauth2-client-bundle": {
         "version": "1.20",
         "recipe": {
@@ -221,47 +209,6 @@
         "files": [
             "config/packages/sensio_framework_extra.yaml"
         ]
-    },
-    "sonata-project/admin-bundle": {
-        "version": "3.64",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "3.64",
-            "ref": "e300c83e77d35a352b863a82c8d039f29f10fd62"
-        },
-        "files": [
-            "config/packages/sonata_admin.yaml",
-            "config/routes/sonata_admin.yaml",
-            "src/Admin/.gitignore"
-        ]
-    },
-    "sonata-project/block-bundle": {
-        "version": "4.3.0"
-    },
-    "sonata-project/cache": {
-        "version": "2.0.1"
-    },
-    "sonata-project/doctrine-extensions": {
-        "version": "1.9.1"
-    },
-    "sonata-project/exporter": {
-        "version": "2.3.0"
-    },
-    "sonata-project/form-extensions": {
-        "version": "1.4",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.4",
-            "ref": "bfc222606aea5418345af70104d974a25dc7c441"
-        },
-        "files": [
-            "config/packages/sonata_form.yaml"
-        ]
-    },
-    "sonata-project/twig-extensions": {
-        "version": "1.4.1"
     },
     "swiftmailer/swiftmailer": {
         "version": "v6.2.3"
@@ -461,9 +408,6 @@
             "tests/bootstrap.php"
         ]
     },
-    "symfony/polyfill-intl-grapheme": {
-        "version": "v1.18.1"
-    },
     "symfony/polyfill-intl-icu": {
         "version": "v1.18.1"
     },
@@ -511,9 +455,6 @@
             "config/routes.yaml"
         ]
     },
-    "symfony/security-acl": {
-        "version": "v3.1.0"
-    },
     "symfony/security-bundle": {
         "version": "4.4",
         "recipe": {
@@ -549,9 +490,6 @@
     },
     "symfony/stopwatch": {
         "version": "v4.4.13"
-    },
-    "symfony/string": {
-        "version": "v5.1.6"
     },
     "symfony/swiftmailer-bundle": {
         "version": "2.5",
@@ -665,9 +603,6 @@
         "version": "v4.4.13"
     },
     "twig/extra-bundle": {
-        "version": "v3.0.5"
-    },
-    "twig/string-extra": {
         "version": "v3.0.5"
     },
     "twig/twig": {

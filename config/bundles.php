@@ -16,17 +16,4 @@ return [
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle::class => ['all' => true],
     KnpU\OAuth2ClientBundle\KnpUOAuth2ClientBundle::class => ['all' => true],
-    Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
-
-
-    # SONATA ADMIN BUNDLE
-
-    Sonata\AdminBundle\SonataAdminBundle::class => ['all' => true],
-    Sonata\Doctrine\Bridge\Symfony\SonataDoctrineBundle::class => ['all' => true],
-    Sonata\Twig\Bridge\Symfony\SonataTwigBundle::class => ['all' => true],
-    Sonata\Form\Bridge\Symfony\SonataFormBundle::class => ['all' => true],
-    Sonata\BlockBundle\SonataBlockBundle::class => ['all' => true],
-
-    Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle::class => ['all' => true],
-
 ];
