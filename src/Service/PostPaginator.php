@@ -33,7 +33,7 @@ class PostPaginator
 
     public function getPageNumberList()
     {
-        if ($this->isBetween($this->pageNumber, 1, 3))
+        if (1 <= $this->pageNumber && $this->pageNumber <= 3)
             return range(1, 5);
         else
             return [
@@ -93,12 +93,6 @@ class PostPaginator
         }
 
         return $postSetForSort;
-    }
-
-    // checking if the number n is in the range between a and b
-    private function isBetween($n, $a, $b)
-    {
-        return ($n-$a)*($n-$b) <= 0;
     }
 
 

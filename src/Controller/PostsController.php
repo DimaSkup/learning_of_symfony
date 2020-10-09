@@ -18,6 +18,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
+use App\Service\FileHandleService;
+
 use App\Service\PostPaginator;
 
 class PostsController extends AbstractController
@@ -88,6 +90,7 @@ class PostsController extends AbstractController
     public function new(Request $request, Slugify $slugify)
     {
         $post = new Post();
+        $fileHandler = new FileHandleService();
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
@@ -113,7 +116,7 @@ class PostsController extends AbstractController
 
             if ($brochureFile)
             {
-                $this->handleBrochureFile($post, $brochureFile, 'brochures_directory');
+                $fileHandler->handleBrochureFile($post, $brochureFile, 'brochures_directory');
             }
 
             // Handling of the Image (JPG|PNG|GIF) file
@@ -220,69 +223,6 @@ class PostsController extends AbstractController
             'post' => $post
         ]);
     }
-
-
-    /**
-     * @param Post $post
-     * @param UploadedFile $brochureFile
-     * @param string $wayToPlace
-     */
-    public function handleBrochureFile($post, $brochureFile, $wayToPlace)
-    {
-        $newBrochureFilename = $this->getNewFilename($brochureFile);
-        $this->handleFile($brochureFile, $newBrochureFilename, $wayToPlace);
-        if ($post->getBrochureFilename())
-            unlink($this->getParameter($wayToPlace).'/'.$post->getBrochureFilename());
-        $post->setBrochureFilename($newBrochureFilename);
-    }
-
-    /**
-     * @param Post $post
-     * @param UploadedFile $imageFile
-     * @param string $wayToPlace
-     */
-    public function handleImageFile($post, $brochureFile, $wayToPlace)
-    {
-        $newBrochureFilename = $this->getNewFilename($brochureFile);
-        $this->handleFile($brochureFile, $newBrochureFilename, $wayToPlace);
-        if ($post->getImageFilename())
-            unlink($this->getParameter($wayToPlace).'/'.$post->getImageFilename());
-        $post->setImageFilename($newBrochureFilename);
-    }
-
-    /**
-     * @param UploadedFile $brochureFile
-     * @param string $wayToPlace
-     * @return void
-     */
-    private function handleFile($uploadedFile, $newFilename, $wayToPlace): void
-    {
-        try
-        {
-            $uploadedFile->move(
-                $this->getParameter($wayToPlace),
-                $newFilename
-            );
-        }
-        catch (FileException $e)
-        {
-            throw new FileException("Error: the file can't be uploaded");
-        }
-    }
-
-    /**
-     * @param $uploadedFile $uploadedFile
-     * @return string $newFilename
-     */
-    private function getNewFilename($uploadedFile): string
-    {
-        $originalFilename = pathinfo($uploadedFile->getClientOriginalName(), PATHINFO_FILENAME);
-        $safeFilename = transliterator_transliterate('Any-Latin; Latin-ASCII; [^A-Za-z0-9] remove; Lower()', $originalFilename);
-        $newFilename = $safeFilename.'-'.uniqid().'.'.$uploadedFile->guessExtension();
-
-        return $newFilename;
-    }
-
 
     /** @var PostRepository $postRepository */
     private $postRepository;
