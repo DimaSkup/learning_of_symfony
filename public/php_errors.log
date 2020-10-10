@@ -118,3 +118,8 @@ Stack trace:
 [29-Sep-2020 11:45:34 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [29-Sep-2020 11:48:36 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [29-Sep-2020 12:14:45 Europe/Helsinki] 2020-09-29T12:14:45+03:00 [critical] Uncaught Error: syntax error, unexpected 'z' (T_STRING), expecting function (T_FUNCTION) or const (T_CONST)
+[10-Oct-2020 11:28:09 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[10-Oct-2020 11:28:20 Europe/Helsinki] 2020-10-10T11:28:20+03:00 [critical] Uncaught Exception: Unrecognized option "migrations_paths" under "doctrine_migrations". Available options are "all_or_nothing", "column_length", "column_name", "custom_template", "dir_name", "executed_at_column_name", "name", "namespace", "organize_migrations", "table_name".
+[10-Oct-2020 11:33:28 Europe/Helsinki] 2020-10-10T11:33:28+03:00 [critical] Uncaught Exception: Cannot determine controller argument for "App\Controller\PostsController::edit()": the $parameterBag argument is type-hinted with the non-existent class or interface: "App\Controller\ParameterBagInterface". Did you forget to add a use statement?
+[10-Oct-2020 11:38:09 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[10-Oct-2020 11:42:50 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0

@@ -28,7 +28,7 @@ class FileHandleService
         $newBrochureFilename = $this->getNewFilename($brochureFile);
         $this->handleFile($brochureFile, $newBrochureFilename, $wayToPlace);
         if ($post->getBrochureFilename())
-            unlink($this->parameterBag->get($wayToPlace).'/'.$post->getBrochureFilename());
+            @unlink($this->parameterBag->get($wayToPlace).'/'.$post->getBrochureFilename());
         $post->setBrochureFilename($newBrochureFilename);
     }
 
@@ -42,7 +42,7 @@ class FileHandleService
         $newBrochureFilename = $this->getNewFilename($brochureFile);
         $this->handleFile($brochureFile, $newBrochureFilename, $wayToPlace);
         if ($post->getImageFilename())
-            unlink($this->parameterBag->get($wayToPlace).'/'.$post->getImageFilename());
+            @unlink($this->parameterBag->get($wayToPlace).'/'.$post->getImageFilename());
         $post->setImageFilename($newBrochureFilename);
     }
 

@@ -10,6 +10,7 @@ use App\Repository\PostRepository;
 use Cocur\Slugify\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Config\Definition\Exception\Exception;
+use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
@@ -87,15 +88,17 @@ class PostsController extends AbstractController
      *
      * @return Response
      */
-    public function new(Request $request, Slugify $slugify)
+    public function new(Request $request, Slugify $slugify, ParameterBagInterface $parameterBag)
     {
         $post = new Post();
-        $fileHandler = new FileHandleService();
+
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            $fileHandler = new FileHandleService($parameterBag);
+
             // ReCaptcha handling
             if (!$_POST['g-recaptcha-response'])
                 exit('Please, fill the ReCaptcha');
@@ -125,12 +128,12 @@ class PostsController extends AbstractController
 
             if ($imageFile)
             {
-                $this->handleImageFile($post, $imageFile, 'images_directory');
+                $fileHandler->handleBrochureFile($post, $imageFile, 'images_directory');
             }
 
             $post->setSlug($slugify->slugify($post->getTitle()));
             $post->setCreatedAt(new \DateTime());
-
+            $post->setUser($this->getUser());
 
 
             $post->setIsModerated(true);
@@ -159,20 +162,22 @@ class PostsController extends AbstractController
      * @param Slugify $slugify
      * @return RedirectResponse|Response
      */
-    public function edit(Post $post, Request $request, Slugify $slugify)
+    public function edit(Post $post, Request $request, Slugify $slugify, ParameterBagInterface $parameterBag)
     {
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid())
         {
+            $fileHandler = new FileHandleService($parameterBag);
+
             // Handling of the PDF document
             /** @var UploadedFile $brochureFile */
             $brochureFile = $form->get('brochure')->getData();
 
             if ($brochureFile)
             {
-                $this->handleBrochureFile($post, $brochureFile, 'brochures_directory');
+                $fileHandler->handleBrochureFile($post, $brochureFile, 'brochures_directory');
             }
 
             // Handling of the Image (JPG|PNG|GIF) file
@@ -181,7 +186,7 @@ class PostsController extends AbstractController
 
             if ($imageFile)
             {
-                $this->handleImageFile($post, $imageFile, 'images_directory');
+                $fileHandler->handleImageFile($post, $imageFile, 'images_directory');
             }
 
             // Save the data in the Database
