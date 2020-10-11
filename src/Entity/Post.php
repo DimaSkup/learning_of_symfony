@@ -187,7 +187,7 @@ class Post
      */
     public function getUsername(): string
     {
-        return (string)$this->user->getUsername();
+        return (string) $this->username;
     }
 
     /**
@@ -197,6 +197,7 @@ class Post
     public function setUsername(string $username): self
     {
         $this->username = $username;
+        return $this;
     }
 
     /**
@@ -204,7 +205,7 @@ class Post
      */
     public function getEmail(): string
     {
-        return (string )$this->user->getEmail();
+        return (string) $this->userEmail;
     }
 
     /**
@@ -269,4 +270,15 @@ class Post
      */
     private $user;
 
+    /**
+     * @var string
+     * @ORM\Column(name="user_email", type="string", nullable=false)
+     */
+    private $userEmail;
+
+    /**
+     * @var string
+     * @ORM\Column(name="username", type="string", nullable=false)
+     */
+    private $username;
 }

@@ -41,14 +41,16 @@ class AppFixtures extends Fixture
     {
         for ($i = 1; $i < $this->fakePostsCount; $i++)
         {
+            $user = $this->userRepository->findOneBy(['email' => rand(1, $this->fakeUsersCount).'@gmail.com']);
             $post = new Post();
             $post->setTitle($this->faker->text(100))
                  ->setSlug($this->slug->slugify($post->getTitle()))
                  ->setBody($this->faker->text(1000))
                  ->setCreatedAt($this->faker->dateTime)
-                 ->setUser($this->userRepository->findOneBy(['email' => rand(1, $this->fakeUsersCount).'@gmail.com']))
-                 ->setIsModerated(true);
-
+                 ->setUser($user)
+                 ->setIsModerated(true)
+                 ->setEmail($user->getEmail())
+                 ->setUsername($user->getUsername());
 
             $manager->persist($post);
         }

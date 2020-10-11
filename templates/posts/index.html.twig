@@ -47,7 +47,9 @@
 
 
     <div class="create_new_post">
-        <a href="{{ path('new_blog_post') }}">Create a new post</a>
+        <a href="{{ path('new_blog_post') }}">
+            <button>Create a new post</button>
+        </a>
     </div>
 
 
@@ -68,6 +70,7 @@
 
         <!-- LIST OF THE POSTS -->
         {% for post in posts %}
+            <br/>
             <div class="post">
                 <a href="{{ path('blog_show', {'slug': post.slug}) }}" >{{ post.title }}</a><br/><br/>
                 <ul class="info_post">

@@ -123,3 +123,4 @@ Stack trace:
 [10-Oct-2020 11:33:28 Europe/Helsinki] 2020-10-10T11:33:28+03:00 [critical] Uncaught Exception: Cannot determine controller argument for "App\Controller\PostsController::edit()": the $parameterBag argument is type-hinted with the non-existent class or interface: "App\Controller\ParameterBagInterface". Did you forget to add a use statement?
 [10-Oct-2020 11:38:09 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [10-Oct-2020 11:42:50 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[11-Oct-2020 14:28:34 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
