@@ -16,7 +16,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Service\FileHandleService;
-
 use App\Service\PostPaginator;
 
 class PostsController extends AbstractController
@@ -40,14 +39,10 @@ class PostsController extends AbstractController
      */
     public function posts(Request $request)
     {
-        //dd($request->attributes);
-        //$posts = $this->postRepository->findAll();
-        //$posts = $this->getPaginator($request);
-
         $postPaginator = new PostPaginator($this->postRepository, $request);
         $posts = $postPaginator->getPostsSet();
         $pageNumberList = $postPaginator->getPageNumberList();
-        $countOfPages = $postPaginator->getCountOfPages();
+        $countOfPosts = count($posts);
 
         // Setting user's data for the each post
         foreach($posts as $post)
@@ -59,7 +54,7 @@ class PostsController extends AbstractController
         return $this->render('posts/index.html.twig', [
             'posts' => $posts,
             'pageNumList' => $pageNumberList,
-            'countOfPages' => $countOfPages,
+            'countOfPosts' => $countOfPosts,
         ]);
     }
 

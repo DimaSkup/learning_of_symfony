@@ -3,19 +3,23 @@
 
 namespace App\Service;
 
-use App\Entity\Post;
 use App\Repository\PostRepository;
-use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 
 
 class PostPaginator
 {
+
+    private $postRepository;
+    private $displayOrder;
+    private $dateSortOrder;
+    private $countOfPages;
+    private $pageNumber;
+    private $resultsPerPage;
+
     public function __construct(PostRepository $postRepository, Request $request)
     {
-        $this->countOfPages = 0;
         $requestData = $request->attributes->all();
-       // $request->getParameter('page_number');
 
         $this->pageNumber = intval($requestData['page']);
         $this->displayOrder = $requestData['display_order'];
@@ -26,7 +30,7 @@ class PostPaginator
 
     public function getPostsSet()
     {
-        $posts = $this->postRepository->findAllPaginated($this->countOfPages, $this->pageNumber, $this->resultsPerPage);
+        $posts = $this->postRepository->findAllPaginated($this->pageNumber, $this->resultsPerPage);
         $posts = $this->sortPostSetBy($posts, $this->displayOrder, $this->dateSortOrder);
         return $posts;
     }
@@ -94,13 +98,4 @@ class PostPaginator
 
         return $postSetForSort;
     }
-
-
-    private $postRepository;
-    private $displayOrder;
-    private $dateSortOrder;
-    private $countOfPages;
-    private $pageNumber;
-    private $resultsPerPage;
-
 }

@@ -18,7 +18,7 @@
 
         <!-- PAGINATION PAGE NUMBER LIST -->
         {% for key, pageNum in pageNumList %}
-            {% if pageNum <= countOfPages %}
+            {% if pageNum <= 10 %}
 
                 {% if pageNum == currentPageNum %}
                     <!-- reference to the current page -->
@@ -33,14 +33,12 @@
             {% endif %}
         {% endfor %}
 
-        <!-- BUTTON "LAST" AND ">" -->
-        <!-- Case 1: buttons "last" and ">" are active -->
+        <!-- BUTTON ">" -->
+        <!-- Case 1: button ">" is active -->
         {% if currentPageNum != countOfPages %}
-            <li><a href="{{ path("blog_posts", {"page": countOfPages}) }}" class="active_link">Last</a></li>
             <li><a href="{{ path("blog_posts", {"page": currentPageNum + 1}) }}" class="active_link">></a></li>
-        <!-- Case 2: disable "last" and ">" button -->
+        <!-- Case 2: disable ">" button -->
         {% else %}
-            <li><a href="#" class="not_active_link">Last</a></li>
             <li><a href="#" class="not_active_link">></a></li>
         {% endif %}
     </div>
