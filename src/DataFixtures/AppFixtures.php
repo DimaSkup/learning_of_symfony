@@ -4,6 +4,9 @@ namespace App\DataFixtures;
 
 use App\Entity\Post;
 use App\Entity\User;
+
+use App\Entity\Person;
+
 use App\Repository\UserRepository;
 use DateTime;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -25,7 +28,7 @@ class AppFixtures extends Fixture
         $this->userRepository = $userRepository;
         $this->passwordEncoder = $passwordEncoder;
 
-        $this->fakePostsCount = 200;
+        $this->fakePostsCount = 23;
         $this->fakeUsersCount = 5;
     }
 
@@ -33,13 +36,14 @@ class AppFixtures extends Fixture
     {
         $this->loadUsers($manager);
         $this->loadPosts($manager);
+        //$this->loadPersons($manager);
 
         $manager->flush();
     }
 
     public function loadPosts(ObjectManager $manager)
     {
-        for ($i = 1; $i < $this->fakePostsCount; $i++)
+        for ($i = 1; $i <= $this->fakePostsCount; $i++)
         {
             $user = $this->userRepository->findOneBy(['email' => rand(1, $this->fakeUsersCount).'@gmail.com']);
             $post = new Post();
@@ -80,6 +84,23 @@ class AppFixtures extends Fixture
                  ->setLastLoginTime(new DateTime('now'));
 
             $manager->persist($user);
+        }
+
+        $manager->flush();
+    }
+
+    public function loadPersons(ObjectManager $manager)
+    {
+        for ($i = 0; $i < 10000; $i++)
+        {
+            $person = new Person;
+
+            $person
+                ->setAge(random_int(18, 30))
+                ->setGender((random_int(1, 100) % 2 == 0) ? 'male' : 'female')
+                ->setPositionId((random_int(1, 10) % 5 !== 0) ? random_int(1, 3) : null);
+
+            $manager->persist($person);
         }
 
         $manager->flush();

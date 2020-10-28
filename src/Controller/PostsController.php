@@ -7,6 +7,7 @@ use App\Entity\Post;
 use App\Entity\User;
 use App\Form\PostType;
 use App\Repository\PostRepository;
+
 use Cocur\Slugify\Slugify;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
@@ -16,7 +17,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 use App\Service\FileHandleService;
-use App\Service\PostPaginator;
+use App\Service\PostsPaginator;
+use App\Service\PostsSortOrder;
 
 class PostsController extends AbstractController
 {
@@ -39,10 +41,12 @@ class PostsController extends AbstractController
      */
     public function posts(Request $request)
     {
-        $postPaginator = new PostPaginator($this->postRepository, $request);
-        $posts = $postPaginator->getPostsSet();
-        $pageNumberList = $postPaginator->getPageNumberList();
-        $countOfPosts = count($posts);
+        $postsPaginator = new PostsPaginator($this->postRepository, $request);
+        $postsSortOrder = new PostsSortOrder($request);
+
+        $posts = $postsPaginator->getPostsSet();
+        $postsSortOrder->sortPostSet($posts);
+
 
         // Setting user's data for the each post
         foreach($posts as $post)
@@ -53,8 +57,7 @@ class PostsController extends AbstractController
 
         return $this->render('posts/index.html.twig', [
             'posts' => $posts,
-            'pageNumList' => $pageNumberList,
-            'countOfPosts' => $countOfPosts,
+            'isNextPageExists' => $postsPaginator->nextPage(),
         ]);
     }
 

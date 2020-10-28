@@ -28,14 +28,14 @@ class PostRepository extends ServiceEntityRepository
                     ->getResult();
     }
 
-    public function findAllPaginated($pageNumber = 0, $resultPerPage = 5)
+    public function findAllPaginated($pageNumber = 1, $resultPerPage = 5)
     {
         $start = ($pageNumber - 1) * $resultPerPage;
 
         return $this->findBy(
             ['isModerated' => true],
             ['created_at' => 'DESC'],
-            $resultPerPage,
+            $resultPerPage + 1,
             $start
         );
     }

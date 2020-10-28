@@ -7,6 +7,7 @@
     <div class="pagination">
         {% set currentPageNum = app.request.attributes.get('page') %}
 
+
         <!-- BUTTON "FIRST" AND "<" -->
         {% if currentPageNum == 1 %}
             <li><a href="#" class="not_active_link">First</a></li>
@@ -17,25 +18,12 @@
         {% endif %}
 
         <!-- PAGINATION PAGE NUMBER LIST -->
-        {% for key, pageNum in pageNumList %}
-            {% if pageNum <= 10 %}
+        <li style="background-color: lightgrey;"><a href="#" class="not_active_link">{{ currentPageNum }}</a></li>
 
-                {% if pageNum == currentPageNum %}
-                    <!-- reference to the current page -->
-                    <li id="current_page"><a href="#">{{ pageNum }}</a></li>
-                {% else %}
-                    <!-- reference to not current page -->
-                    <li><a href="{{ path("blog_posts", {'page': pageNum}) }}" class="active_link">{{ pageNum }}</a></li>
-                {% endif %}
-            {% else %}
-                <!-- reference to page with number which is higher than countOfPage -->
-                <li><a href="#" class="not_active_link">{{ pageNum }}</a></li>
-            {% endif %}
-        {% endfor %}
 
         <!-- BUTTON ">" -->
         <!-- Case 1: button ">" is active -->
-        {% if currentPageNum != countOfPages %}
+        {% if isNextPageExists %}
             <li><a href="{{ path("blog_posts", {"page": currentPageNum + 1}) }}" class="active_link">></a></li>
         <!-- Case 2: disable ">" button -->
         {% else %}
@@ -68,15 +56,16 @@
 
         <!-- LIST OF THE POSTS -->
         {% for post in posts %}
-            <br/>
-            <div class="post">
-                <a href="{{ path('blog_show', {'slug': post.slug}) }}" >{{ post.title }}</a><br/><br/>
-                <ul class="info_post">
-                    <li>{{ post.username }}</li>
-                    <li>{{ post.email }}</li>
-                    <li>{{ post.createdAtString }}</li>
-                </ul>
-            </div>
+                <br/>
+                <div class="post">
+                    <a href="{{ path('blog_show', {'slug': post.slug}) }}" >{{ post.title }}</a><br/><br/>
+                    <ul class="info_post">
+                        <li>{{ post.username }}</li>
+                        <li>{{ post.email }}</li>
+                        <li>{{ post.createdAtString }}</li>
+                    </ul>
+                </div>
+
         {% endfor %}
     </div>
 
