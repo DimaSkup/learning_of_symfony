@@ -53,10 +53,6 @@ body {
     background-color: #AA3333;
 }
 
-
-
-
-
 #navbar .language_choice ul
 {
     display: none;
@@ -155,21 +151,29 @@ body {
 
 /* CREATE NEW POST BUTTON */
 /* index.html.twig */
+
 .create_new_post
 {
-    width: 150px;
-    margin: 10px 0 10px 0;
-    padding: 10px;
-    background-color: white;
-    border: 2px solid goldenrod;
-    text-align: center;
+    padding: 10px 0 20px 0;
 }
 
 .create_new_post a
 {
+    width: 150px;
+    padding: 10px;
+
+    background-color: white;
+    border: 2px solid goldenrod;
+    text-align: center;
     text-decoration: none;
+}
+
+.create_new_post a
+{
+
     color: goldenrod;
 }
+
 
 /* POSTS */
 /* index.html.twig */
@@ -182,9 +186,8 @@ body {
 
 .order_by_button
 {
-    width: 115px;
+    width: 117px;
     margin-left: auto;
-    margin-right: 0em;
     display: flex;
     justify-content: end;
 }
@@ -193,6 +196,7 @@ body {
 {
     height: 30px;
     background-color: white;
+    border: goldenrod 1px solid;
 
     width: 100%;
 }
@@ -202,8 +206,15 @@ body {
 {
     display: none;
     background-color: white;
+
     position: absolute;
     top: 100%;
+}
+
+#order_by li:hover
+{
+    background-color: #ebce6e;
+    border: none;
 }
 
 #order_by li:hover ul { display: block; }
@@ -219,7 +230,7 @@ body {
 #order_by li
 {
     float: left;
-    margin-left: -2px;
+    margin: -1px 0  0 -2px;
     position: relative;
     height: 100%;
 }
@@ -238,7 +249,7 @@ body {
 #order_by ul li {float: none;}
 
 
-#order_by li:hover { background-color: #ebce6e; }
+
 
 #order_by ul li:hover { background-color: #ebce6e; }
 

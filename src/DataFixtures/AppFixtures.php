@@ -28,7 +28,7 @@ class AppFixtures extends Fixture
         $this->userRepository = $userRepository;
         $this->passwordEncoder = $passwordEncoder;
 
-        $this->fakePostsCount = 23;
+        $this->fakePostsCount = 54;
         $this->fakeUsersCount = 5;
     }
 

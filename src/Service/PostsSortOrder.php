@@ -16,20 +16,18 @@ class PostsSortOrder
 
         $this->displayOrder = $requestData['display_order'];
         $this->dateSortOrder = $requestData['date_sort_order'];
-
-
     }
 
 
-    public function sortPostSet($postsSetForSort)
+    public function sortPostSet(&$postsSetForSort)
     {
         $sortBy = $this->displayOrder;
 
-        if ($sortBy === "createdAt")
+        if ($sortBy == "createdAt")
         {
             $order = $this->dateSortOrder;
 
-            if ($order === "DESC")
+            if ($order == "DESC")
             {
                 usort($postsSetForSort, function($post1, $post2)
                 {
@@ -37,7 +35,7 @@ class PostsSortOrder
                     return ($post1->getCreatedAt() > $post2->getCreatedAt()) ? -1 : 1;
                 });
             }
-            else if ($order === "ASC")
+            else if ($order == "ASC")
             {
                 usort($postsSetForSort, function($post1, $post2)
                 {
@@ -46,7 +44,7 @@ class PostsSortOrder
                 });
             }
         }
-        else if ($sortBy === "username")
+        else if ($sortBy == "username")
         {
             usort($postsSetForSort, function($post1, $post2)
             {
@@ -54,7 +52,7 @@ class PostsSortOrder
                 return ($post1->getUsername() < $post2->getUsername()) ? -1 : 1;
             });
         }
-        else if ($sortBy === "email")
+        else if ($sortBy == "email")
         {
             usort($postsSetForSort, function($post1, $post2)
             {
@@ -62,9 +60,7 @@ class PostsSortOrder
                 return ($post1->getEmail() < $post2->getEmail()) ? -1 : 1;
             });
         }
-
-        return $postsSetForSort;
-    }
+    } // end of the function sortPostSet()
 
 
-}
+}   // end of the class PostsSortOrder
