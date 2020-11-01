@@ -20,6 +20,8 @@
         "league/oauth2-google": "^3.0",
         "phpdocumentor/reflection-docblock": "^5.2",
         "sensio/framework-extra-bundle": "^5.1",
+        "sonata-project/admin-bundle": "^3.78",
+        "sonata-project/doctrine-orm-admin-bundle": "^3.24",
         "symfony/asset": "4.4.*",
         "symfony/console": "4.4.*",
         "symfony/dependency-injection": "4.4.*",
