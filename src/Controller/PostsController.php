@@ -132,10 +132,6 @@ class PostsController extends AbstractController
 
             $post->setIsModerated(true);
 
-
-
-
-
             // Save the data in the Database
             $em = $this->getDoctrine()->getManager();
 
