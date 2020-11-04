@@ -187,35 +187,16 @@ class Post
      */
     public function getUsername(): string
     {
-        return (string) $this->username;
+        return (string) $this->user->getUsername();
     }
 
-    /**
-     * @param string $username
-     * @return Post
-     */
-    public function setUsername(string $username): self
-    {
-        $this->username = $username;
-        return $this;
-    }
 
     /**
      * @return string
      */
     public function getEmail(): string
     {
-        return (string) $this->userEmail;
-    }
-
-    /**
-     * @param string $email
-     * @return Post
-     */
-    public function setEmail($email): self
-    {
-        $this->userEmail = $email;
-        return $this;
+        return (string) $this->user->getEmail();
     }
 
     /**
@@ -269,16 +250,4 @@ class Post
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
-
-    /**
-     * @var string
-     * @ORM\Column(name="user_email", type="string", nullable=false)
-     */
-    private $userEmail;
-
-    /**
-     * @var string
-     * @ORM\Column(name="username", type="string", nullable=false)
-     */
-    private $username;
 }

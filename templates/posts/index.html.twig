@@ -32,11 +32,13 @@
     </div>
 
 
-    <div class="create_new_post">
-        <a href="{{ path('new_blog_post') }}">
-            Create new post
-        </a>
-    </div>
+    {% if app.user %}
+        <div class="create_new_post">
+            <a href="{{ path('new_blog_post') }}">
+                Create new post
+            </a>
+        </div>
+    {% endif %}
 
 
     <!-- DISPLAYING OF THE POSTS -->

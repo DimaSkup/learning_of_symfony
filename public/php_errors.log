@@ -245,3 +245,11 @@ Stack trace:
 [03-Nov-2020 12:48:13 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [03-Nov-2020 12:54:28 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [03-Nov-2020 12:55:39 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[04-Nov-2020 10:05:37 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[04-Nov-2020 10:27:02 Europe/Helsinki] 2020-11-04T10:27:02+02:00 [critical] Uncaught Error: syntax error, unexpected 'dd' (T_STRING), expecting ';' or '{'
+[04-Nov-2020 10:38:20 Europe/Helsinki] 2020-11-04T10:38:20+02:00 [critical] Uncaught Exception: Expected to find class "App\Migrations\Version20201011115739" in file "/home/dima/blog/src/Migrations/Version20201011115739.php" while importing services from resource "../src/", but it was not found! Check the namespace prefix used with the resource in /home/dima/blog/config/services.yaml (which is loaded in resource "/home/dima/blog/config/services.yaml").
+[04-Nov-2020 10:38:25 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[04-Nov-2020 10:40:05 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[04-Nov-2020 11:41:22 Europe/Helsinki] 2020-11-04T11:41:22+02:00 [critical] Uncaught Exception: Expected to find class "App\Migrations\Version20201011115739" in file "/home/dima/blog/src/Migrations/Version20201011115739.php" while importing services from resource "../src/", but it was not found! Check the namespace prefix used with the resource in /home/dima/blog/config/services.yaml (which is loaded in resource "/home/dima/blog/config/services.yaml").
+[04-Nov-2020 11:41:28 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[04-Nov-2020 11:45:34 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0

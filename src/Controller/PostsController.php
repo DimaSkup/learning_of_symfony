@@ -84,6 +84,11 @@ class PostsController extends AbstractController
      */
     public function new(Request $request, Slugify $slugify, ParameterBagInterface $parameterBag)
     {
+        $user = $this->getUser();
+
+        if (!($user instanceof User))
+            return new Response("You aren't an allowed user!");
+
         $post = new Post();
 
         $form = $this->createForm(PostType::class, $post);
@@ -127,7 +132,7 @@ class PostsController extends AbstractController
 
             $post->setSlug($slugify->slugify($post->getTitle()));
             $post->setCreatedAt(new \DateTime());
-            $post->setUser($this->getUser());
+            $post->setUser($user);
 
 
             $post->setIsModerated(true);
@@ -154,6 +159,9 @@ class PostsController extends AbstractController
      */
     public function edit(Post $post, Request $request, Slugify $slugify, ParameterBagInterface $parameterBag)
     {
+        if (!($this->getUser() instanceof User))
+            return new Response("You aren't an allowed user!");
+
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
 
@@ -201,6 +209,9 @@ class PostsController extends AbstractController
      */
     public function delete(Post $post)
     {
+        if (!($this->getUser() instanceof User))
+            return new Response("You aren't an allowed user!");
+
         $em = $this->getDoctrine()->getManager();
         $em->remove($post);
         $em->flush();

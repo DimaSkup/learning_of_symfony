@@ -43,6 +43,7 @@ class RegisterController extends AbstractController
                 $user->getPlainPassword()
             );
             $user->setPassword($password);
+            $user->eraseCredentials();
             $user->setConfirmationCode($codeGenerator->getConfirmationCode());
             $user->setEnabled(false);
 
