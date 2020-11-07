@@ -253,3 +253,13 @@ Stack trace:
 [04-Nov-2020 11:41:22 Europe/Helsinki] 2020-11-04T11:41:22+02:00 [critical] Uncaught Exception: Expected to find class "App\Migrations\Version20201011115739" in file "/home/dima/blog/src/Migrations/Version20201011115739.php" while importing services from resource "../src/", but it was not found! Check the namespace prefix used with the resource in /home/dima/blog/config/services.yaml (which is loaded in resource "/home/dima/blog/config/services.yaml").
 [04-Nov-2020 11:41:28 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
 [04-Nov-2020 11:45:34 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[07-Nov-2020 16:12:48 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[07-Nov-2020 16:23:03 Europe/Helsinki] 2020-11-07T16:23:04+02:00 [critical] Uncaught Exception: Expected to find class "App\Migrations\Version20201011115739" in file "/home/dima/blog/src/Migrations/Version20201011115739.php" while importing services from resource "../src/", but it was not found! Check the namespace prefix used with the resource in /home/dima/blog/config/services.yaml (which is loaded in resource "/home/dima/blog/config/services.yaml").
+[07-Nov-2020 16:23:18 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[07-Nov-2020 16:34:58 Europe/Helsinki] 2020-11-07T16:34:58+02:00 [critical] Uncaught Error: syntax error, unexpected '}'
+[07-Nov-2020 16:43:34 Europe/Helsinki] 2020-11-07T16:43:34+02:00 [critical] Uncaught Exception: Expected to find class "App\Migrations\Version20201011115739" in file "/home/dima/blog/src/Migrations/Version20201011115739.php" while importing services from resource "../src/", but it was not found! Check the namespace prefix used with the resource in /home/dima/blog/config/services.yaml (which is loaded in resource "/home/dima/blog/config/services.yaml").
+[07-Nov-2020 16:43:37 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[07-Nov-2020 16:46:01 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[07-Nov-2020 17:06:38 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[07-Nov-2020 17:07:57 Europe/Helsinki] PHP Warning:  Module 'intl' already loaded in Unknown on line 0
+[07-Nov-2020 17:14:01 Europe/Helsinki] 2020-11-07T17:14:01+02:00 [critical] Uncaught Error: syntax error, unexpected 'dd' (T_STRING)
