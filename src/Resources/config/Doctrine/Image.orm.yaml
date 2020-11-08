@@ -1,0 +1,21 @@
+App\Entity\Image:
+  type: entity
+  repositoryClass: App\src\Repository\ImageRepository
+  table: images
+  id:
+    id:
+      type:       integer
+      generator:  { strategy: AUTO}
+
+    fields:
+      filename:
+        type:     string
+        length:   100
+
+      updated:
+        type:     datetime
+        nullable: true
+
+    lifecycleCallbacks:
+      prePersist: ['lifecycleFileUpload']
+      preUpdate:  ['lifecycleFileUpload']

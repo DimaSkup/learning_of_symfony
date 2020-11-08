@@ -225,6 +225,7 @@ class PostsController extends AbstractController
      */
     public function post(Post $post)
     {
+        //dd($post);
         return $this->render('posts/show.html.twig', [
             'post' => $post
         ]);

@@ -3,6 +3,7 @@
 
 namespace App\Admin;
 
+use App\Entity\Image;
 use App\Entity\Post;
 use App\Entity\User;
 use Cocur\Slugify\Slugify;
@@ -13,6 +14,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Form\Type\ModelType;
+use Sonata\AdminBundle\Form\Type\AdminType;
 
 use Symfony\Component\DependencyInjection\ParameterBag\ParameterBagInterface;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -28,11 +30,15 @@ use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 
 final class PostAdmin extends AbstractAdmin
 {
-    public function __construct($code, $class, $baseControllerName, Slugify $slugify, FileHandleService $fileHandleService)
+    public function __construct($code, $class, $baseControllerName,
+                                Slugify $slugify,
+                                FileHandleService $fileHandler,
+                                ParameterBagInterface $parameterBag)
     {
         parent::__construct($code, $class, $baseControllerName);
         $this->slugify = $slugify;
-        $this->fileHandleService = $fileHandleService;
+        $this->fileHandler = $fileHandler;
+        $this->parameterBag = $parameterBag;
     }
 
     public function toString($object)
@@ -83,32 +89,58 @@ final class PostAdmin extends AbstractAdmin
         ->end()
         ;
 
-        $dataCollector = $formMapper->getFormBuilder()->get('title')->getAttribute('data_collector/passed_options');
-        $fieldDescription = $dataCollector["sonata_field_description"];
-        $postSubject = $fieldDescription->getAdmin()->getSubject();
-
-        $container = $this->getConfigurationPool()->getContainer();
 
 
-        $imageFilename =
-        dd($postSubject->getBrochureFilename());
-        //dd($formMapper->get('image'));
 
-        /*
         $formMapper->get('image')
             ->addModelTransformer(new CallbackTransformer(
                 function($image)
                 {
                     return;
                 },
-                function ($image)
+                function ($imageAsSting)
                 {
-                    dd($image);
+                    $postSubject = $this->subject;
+                    $postSubject->setImageFilename(null);
 
 
+
+                    $pathToImageDir = $this->parameterBag->get('images_directory');
+                    $imageFullPath = $pathToImageDir . '/' . $postSubject->getImageFilename();
+
+                    $request = $this->getRequest();
+                    $uniqid = $request->query->get('uniqid');
+                    /** @var UploadedFile $imageFile */
+                    $imageFile = $request->files->get($uniqid)['image'];
+
+                    return $imageFile;
+
+                    //dd($this->subject->getImageFilename());
+
+
+                    if (null !== $imageFile)
+                    {
+                        //dd($imageFile->getPathname() . '/' . $imageFile->getClientOriginalName());
+                        return $imageFile;
+                    }
+                    else if ($this->subject->getImageFilename())
+                    {
+                        dd("SECOND");
+                        $postImageFilename = $this->subject->getImageFilename();
+                        dd($postImageFilename);
+                        return $pathToImageDir.'/'.$postImageFilename;
+                    }
+                    else // null === $this->subject->getImage() && null === $imageFile
+                    {
+                        dd("THIRD");
+                        return $pathToImageDir.'/default_image.png';
+                    }
+
+                    dd("END");
                 }
             ));
-        */
+
+
 
     }
 
@@ -118,6 +150,7 @@ final class PostAdmin extends AbstractAdmin
             ->addIdentifier('title')
             ->add('user.email')
             ->add('isModerated')
+            ->add('created_at')
         ;
     }
 
@@ -133,23 +166,25 @@ final class PostAdmin extends AbstractAdmin
 
     public function prePersist($post)
     {
-        $fileHandler = $this->fileHandleService;
+
         $files = $this->getRequest()->files;
         $uniqid = $files->keys()[0];
         $filesParams = $files->all()[$uniqid];
+
 
         // A FILES HANDLING
         foreach ($filesParams as $key => $file)
         {
             /** @var UploadedFile $file */
 
-            if ($key == "brochure")
+            if ($key == "brochure" && $file !== null)
             {
-                $fileHandler->handleBrochureFile($post, $file, 'brochures_directory');
+                $this->fileHandler->handleBrochureFile($post, $file, 'brochures_directory');
             }
-            else if ($key == "image")
+            else if ($key == "image" && $file !== null)
             {
-                $fileHandler->handleImageFile($post, $file, 'images_directory');
+
+                $this->fileHandler->handleImageFile($post, $file, 'images_directory');
             }
             else
             {
@@ -164,33 +199,24 @@ final class PostAdmin extends AbstractAdmin
 
     public function preUpdate($post)
     {
-        dd("KEK");
-        $fileHandler = $this->fileHandleService;
         $files = $this->getRequest()->files;
         $uniqid = $files->keys()[0];
         $filesParams = $files->all()[$uniqid];
 
+        if ($filesParams['brochure'] !== null)
+            $this->fileHandler->handleBrochureFile($post, $filesParams['brochure'], 'images_directory');
+
+        if ($filesParams['image'] !== null)
+            $this->fileHandler->handleImageFile($post, $filesParams['image'], 'images_directory');
+
+
         // A FILES HANDLING
-        foreach ($filesParams as $key => $file)
-        {
-            /** @var UploadedFile $file */
+       /* if ($filesParams['brochure'] !== null)
+            $this->fileHandler->handleBrochureFile($post, $filesParams['brochure'], 'images_directory');
 
-            if ($key == "brochure")
-            {
-                $post->setBrochureFilename(null);
-                $fileHandler->handleBrochureFile($post, $file, 'brochures_directory');
-            }
-            else if ($key == "image")
-            {
-                $post->setImageFilename(null);
-                $fileHandler->handleImageFile($post, $file, 'images_directory');
-            }
-            else
-            {
-                return new Response("Error! Unknown type of the file!");
-            }
-        }
-
+        if ($filesParams['image'] !== null)
+            $this->fileHandler->handleImageFile($post, $filesParams['image'], 'images_directory');
+*/
         $post->setSlug($this->slugify->slugify(substr($post->getTitle(), 0, 20)));
         //$post->setIsModerated(true);
         //$post->setCreatedAt(new \DateTime());
@@ -200,8 +226,8 @@ final class PostAdmin extends AbstractAdmin
     private $slugify;
 
     /** @var FileHandleService */
-    private $fileHandleService;
+    private $fileHandler;
 
     /** @var ParameterBagInterface */
-    $parameterBag;
+    private $parameterBag;
 }

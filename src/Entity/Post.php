@@ -92,6 +92,14 @@ class Post
     }
 
     /**
+     * @return string
+     */
+    public function getCreateAtString(): string
+    {
+        return date("Y-m-d H:i:s", $this->created_at->getTimestamp());
+    }
+
+    /**
      * @param \DateTimeInterface $created_at
      * @return Post
      */
