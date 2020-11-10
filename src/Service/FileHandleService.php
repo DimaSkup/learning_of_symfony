@@ -18,6 +18,16 @@ class FileHandleService
         $this->parameterBag = $parameterBag;
     }
 
+    public function removeImageFile($entity, $imageFile)
+    {
+        $fullPathToImage = $this->parameterBag->get('images_directory'). '/' . $imageFile;
+
+        if (file_exists($fullPathToImage))
+            @unlink($fullPathToImage);
+
+        $entity->setImageFilename(null);
+    }
+
     /**
      * @param Post $post
      * @param UploadedFile $brochureFile

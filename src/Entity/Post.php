@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\PostRepository;
+use App\Service\FileHandleService;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -16,9 +17,6 @@ class Post
      */
     public function __construct()
     {
-        //dd();
-        //$this->setCreatedAt();
-       //
     }
 
     /**
@@ -145,7 +143,7 @@ class Post
     }
 
     /**
-     * @param string $imageFilename
+     * @param string
      * @return Post
      */
     public function setImageFilename($imageFilename): self
@@ -258,4 +256,5 @@ class Post
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
+
 }

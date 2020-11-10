@@ -3,7 +3,6 @@
 
 namespace App\Admin;
 
-use App\Entity\Image;
 use App\Entity\Post;
 use App\Entity\User;
 use Cocur\Slugify\Slugify;
@@ -90,55 +89,10 @@ final class PostAdmin extends AbstractAdmin
         ;
 
 
+        $this->imageTransformer($formMapper);
+        //$this->brochureTransformer($formMapper);
 
 
-        $formMapper->get('image')
-            ->addModelTransformer(new CallbackTransformer(
-                function($image)
-                {
-                    return;
-                },
-                function ($imageAsSting)
-                {
-                    $postSubject = $this->subject;
-                    $postSubject->setImageFilename(null);
-
-
-
-                    $pathToImageDir = $this->parameterBag->get('images_directory');
-                    $imageFullPath = $pathToImageDir . '/' . $postSubject->getImageFilename();
-
-                    $request = $this->getRequest();
-                    $uniqid = $request->query->get('uniqid');
-                    /** @var UploadedFile $imageFile */
-                    $imageFile = $request->files->get($uniqid)['image'];
-
-                    return $imageFile;
-
-                    //dd($this->subject->getImageFilename());
-
-
-                    if (null !== $imageFile)
-                    {
-                        //dd($imageFile->getPathname() . '/' . $imageFile->getClientOriginalName());
-                        return $imageFile;
-                    }
-                    else if ($this->subject->getImageFilename())
-                    {
-                        dd("SECOND");
-                        $postImageFilename = $this->subject->getImageFilename();
-                        dd($postImageFilename);
-                        return $pathToImageDir.'/'.$postImageFilename;
-                    }
-                    else // null === $this->subject->getImage() && null === $imageFile
-                    {
-                        dd("THIRD");
-                        return $pathToImageDir.'/default_image.png';
-                    }
-
-                    dd("END");
-                }
-            ));
 
 
 
@@ -221,6 +175,37 @@ final class PostAdmin extends AbstractAdmin
         //$post->setIsModerated(true);
         //$post->setCreatedAt(new \DateTime());
     }
+
+    private function imageTransformer($formMapper)
+    {
+        $formMapper->get('image')
+            ->addModelTransformer(new CallbackTransformer(
+                function($image)
+                {
+                    return;
+                },
+                function ($imageAsSting)
+                {
+                    $request = $this->getRequest();
+                    $uniqid = $request->query->get('uniqid');
+
+                    /** @var UploadedFile $imageFile */
+                    $imageFile = $request->files->get($uniqid)['image'];
+
+
+
+                    if ($imageFile !== null)
+                    {
+                        $postSubject = $this->subject;
+                        $this->fileHandler->removeImageFile($postSubject, $postSubject->getImageFilename());
+                    }
+
+                    return $imageFile;
+                }
+            ));
+    }
+
+    private function brochureTransformer()
 
     /** @var Slugify */
     private $slugify;

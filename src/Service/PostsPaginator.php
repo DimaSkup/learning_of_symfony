@@ -14,14 +14,12 @@ class PostsPaginator
     private $postRepository;
     private $nextPage;
 
-
     public function __construct(PostRepository $postRepository, Request $request)
     {
-        $requestData = $request->attributes->all();
+        $requestAttrParamBag = $request->attributes;
 
-
-        $this->pageNumber = intval($requestData['page']);
-        $this->resultsPerPage = intval($requestData['results_per_page']);
+        $this->pageNumber = intval($requestAttrParamBag->get('page'));
+        $this->resultsPerPage = intval($requestAttrParamBag->get('results_per_page'));
         $this->postRepository = $postRepository;
         $this->nextPage = false;
     }
@@ -73,6 +71,4 @@ class PostsPaginator
     {
         return $this->countOfPages;
     }
-
-
 }
